@@ -1,0 +1,905 @@
+/* FINE LUXURY ARCHITECTURAL SCENE SYSTEM CONFIGURATIONS */
+.atelierMasterContainer {
+  --bg-atelier: #F7F4EF;
+  --gold-atelier: #C7A15A;
+  --ivory-atelier: #FFFDF8;
+  --charcoal-atelier: #1B1B1B;
+  --white-solid: #FFFFFF;
+  
+  background-color: var(--bg-atelier);
+  color: var(--charcoal-atelier);
+  font-family: -apple-system, BlinkMacSystemFont, 'Didot', 'Bodoni MT', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* REUSABLE TYPOGRAPHY HEADER INTERMEDIARIES */
+.centeredAtelierHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4.5rem auto;
+}
+
+.centeredAtelierHeader h2 {
+  font-size: 2.6rem;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+  margin: 0.6rem 0 1rem 0;
+  line-height: 1.2;
+}
+
+.centeredAtelierHeader p {
+  color: #555555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.goldPrefix {
+  color: var(--gold-atelier);
+  font-size: 0.75rem;
+  letter-spacing: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* SECTION 1: HERO VIEWPORT MATRIX CONFIGURATIONS */
+.heroSectionViewport {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #111111;
+}
+
+.heroGlintAtmosphere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #241f17 0%, #0d0d0c 100%);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ambientShiftingBeam {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle at 30% 30%, rgba(199, 161, 90, 0.06) 0%, transparent 60%);
+  animation: slowShiftingGleamLoop 15s infinite alternate ease-in-out;
+}
+
+@keyframes slowShiftingGleamLoop {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(5%, 8%) rotate(10deg); }
+}
+
+.driftingDustParticleCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(199, 161, 90, 0.12) 1px, transparent 0);
+  background-size: 48px 48px;
+  animation: backgroundGoldDrift 24s linear infinite;
+}
+
+@keyframes backgroundGoldDrift {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 48px 96px; }
+}
+
+.heroLayoutShield {
+  position: relative;
+  z-index: 5;
+  color: var(--white-solid);
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+.editorialSubLabel {
+  color: var(--gold-atelier);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.45rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.heroMainTypography {
+  font-size: 4.2rem;
+  font-weight: 200;
+  letter-spacing: 0.2rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.1;
+}
+
+.heroConceptParagraph {
+  font-size: 1.25rem;
+  color: #e5dec9;
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+
+.luxuryButtonChased {
+  background-color: transparent;
+  border: 1px solid var(--gold-atelier);
+  color: var(--white-solid);
+  padding: 1.2rem 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxuryButtonChased:hover {
+  background-color: var(--gold-atelier);
+  color: var(--charcoal-atelier);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.downwardScrollAnchor {
+  position: absolute;
+  bottom: 2.5rem;
+  color: var(--gold-atelier);
+  font-size: 1.5rem;
+  z-index: 5;
+  animation: subtleBounceVertical 2.2s infinite ease-in-out;
+}
+
+@keyframes subtleBounceVertical {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* SECTION 2: INTENT PATHWAY MATRICES */
+.intentMatrixSection {
+  padding: 8rem 6%;
+  background-color: var(--ivory-atelier);
+}
+
+.intentCardLayoutGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.intentPerspectiveCard {
+  background-color: var(--bg-atelier);
+  border: 1px solid rgba(27,27,27,0.03);
+  padding: 2.5rem 1.8rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardInternalMeta h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.cardInternalMeta p {
+  color: #666666;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.cardBadgeFloating {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold-atelier);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.cardActionInlineTrigger {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  border-bottom: 1px solid var(--gold-atelier);
+  padding-bottom: 0.2rem;
+}
+
+.intentPerspectiveCard:hover {
+  transform: translateY(-6px);
+  background-color: var(--white-solid);
+  box-shadow: 0 20px 45px rgba(27,27,27,0.05);
+  border-color: var(--gold-atelier);
+}
+
+/* SECTION 3: INTERACTIVE LEARNING HUB SPLITS */
+.learningHubSectionViewport {
+  padding: 8rem 6%;
+}
+
+.hubSplitControlMatrix {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hubSelectorControlPane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hubSelectTabOption {
+  background-color: var(--white-solid);
+  border: 1px solid rgba(27,27,27,0.04);
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubSelectTabActive {
+  background-color: var(--charcoal-atelier);
+  color: var(--white-solid);
+  border-color: var(--charcoal-atelier);
+  padding-left: 2rem;
+}
+
+.hubDynamicDisplayCard {
+  background-color: var(--white-solid);
+  padding: 4.5rem;
+  border: 1px solid rgba(27,27,27,0.02);
+  border-top: 4px solid var(--local-accent, var(--gold-atelier));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.displayPurityPill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  color: var(--gold-atelier);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hubDynamicDisplayCard h3 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0 0 1.5rem 0;
+}
+
+.hubCoreVerdict {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #444444;
+  margin: 0 0 2.5rem 0;
+}
+
+.trendSpotlightFrame {
+  background-color: var(--bg-atelier);
+  padding: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+.trendSpotlightFrame strong {
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: #777777;
+}
+
+.trendSpotlightFrame p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.hubAcquisitionCtaLink {
+  background: transparent;
+  border: none;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  padding: 0 0 0.3rem 0;
+  border-bottom: 1px solid var(--charcoal-atelier);
+}
+
+/* SECTION 4: COMPARATIVE ARCHITECTURE ROWS (APPLE TYPE) */
+.appleComparativeSection {
+  padding: 8rem 6%;
+  background-color: var(--ivory-atelier);
+}
+
+.appleStyleTripleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.appleCompareColumn {
+  background-color: var(--white-solid);
+  padding: 3.5rem 2.5rem;
+  border: 1px solid rgba(27,27,27,0.02);
+  text-align: center;
+}
+
+.appleCompareColumn h3 {
+  font-size: 2.2rem;
+  font-weight: 200;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.metricRowEntry {
+  border-top: 1px solid rgba(27,27,27,0.06);
+  padding: 2rem 0;
+}
+
+.metricTag {
+  font-size: 0.7rem;
+  color: #888888;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.metricRowEntry strong {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+/* EXCLUSIVE: INTELLIGENT JEWELLERY ADVISOR BLOCK */
+.intelligentAdvisorSection {
+  padding: 8rem 6%;
+}
+
+.advisorModuleGlassFrame {
+  background-color: var(--white-solid);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem;
+  border: 1px solid rgba(27,27,27,0.03);
+  box-shadow: 0 30px 70px rgba(27,27,27,0.02);
+}
+
+.advisorInputGridRows {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.advisorInputBlock label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #666666;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.advisorToggleRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.advisorToggleRow button {
+  background-color: var(--bg-atelier);
+  border: 1px solid transparent;
+  padding: 0.9rem 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.advisorToggleRow .toggleActiveBtn {
+  background-color: var(--charcoal-atelier);
+  color: var(--white-solid);
+}
+
+.advisorExecutionCenter {
+  text-align: center;
+}
+
+.advisorSubmitActionExecute {
+  background-color: var(--gold-atelier);
+  color: var(--white-solid);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.advisorSubmitActionExecute:hover {
+  background-color: var(--charcoal-atelier);
+}
+
+.advisorDynamicOutputResultFrame {
+  margin-top: 3.5rem;
+  background-color: var(--bg-atelier);
+  padding: 3rem;
+  border-left: 4px solid var(--gold-atelier);
+  text-align: left;
+  animation: fadeUpReveal 0.5s ease-out forwards;
+}
+
+@keyframes fadeUpReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.advisorDynamicOutputResultFrame h4 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.advisorDynamicOutputResultFrame p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* SECTION 6: THE ACTIVE STYLE COUTURE STUDIO */
+.styleStudioSection {
+  padding: 8rem 6%;
+  background-color: var(--ivory-atelier);
+}
+
+.styleStudioWorkspace {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.styleStudioSelectorStrip {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.styleStudioTab {
+  background: transparent;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  color: #777777;
+  font-weight: 500;
+  position: relative;
+}
+
+.styleStudioTabActive {
+  color: var(--charcoal-atelier);
+  font-weight: 700;
+}
+
+.styleStudioTabActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: var(--gold-atelier);
+}
+
+.styleStudioActiveCouturePlate {
+  background: linear-gradient(180deg, #e4ded5 0%, #cac3b5 100%);
+  height: 480px;
+  border: 1px solid rgba(27,27,27,0.04);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dynamicJewelleryOverlayShadow {
+  position: absolute;
+  bottom: 2rem;
+  background-color: rgba(27, 27, 27, 0.85);
+  color: var(--white-solid);
+  padding: 0.8rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  animation: pulseMutation 0.4s ease-out;
+}
+
+@keyframes pulseMutation {
+  0% { transform: scale(0.96); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* SECTION 7: LUXURY PRESERVATION MATRIX */
+.careStudioSection {
+  padding: 8rem 6%;
+}
+
+.careQuadLayoutGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.careLuxuryActionCard {
+  background-color: var(--white-solid);
+  border: 1px solid rgba(27,27,27,0.02);
+  padding: 3.5rem 2.2rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.careIndexMarker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-atelier);
+  display: block;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.careLuxuryActionCard h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+}
+
+.careLuxuryActionCard p {
+  color: #666666;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.careCardSelectedActive, .careLuxuryActionCard:hover {
+  background-color: var(--charcoal-atelier);
+  color: var(--white-solid);
+  transform: translateY(-4px);
+}
+
+.careCardSelectedActive p, .careLuxuryActionCard:hover p {
+  color: #b5b5b5;
+}
+
+/* SECTION 8: HORIZONTAL CHRONOLOGY SYSTEM TIMELINE */
+.chronologicalTimelineSection {
+  padding: 8rem 6%;
+  background-color: var(--ivory-atelier);
+}
+
+.horizontalScrollingTimelineTrack {
+  display: flex;
+  gap: 3rem;
+  overflow-x: auto;
+  padding: 3rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.horizontalScrollingTimelineTrack::-webkit-scrollbar {
+  height: 4px;
+}
+
+.horizontalScrollingTimelineTrack::-webkit-scrollbar-thumb {
+  background-color: var(--gold-atelier);
+}
+
+.timelineChronologyNode {
+  min-width: 280px;
+  scroll-snap-align: start;
+}
+
+.nodePointMarkerRow {
+  height: 1px;
+  background-color: rgba(27,27,27,0.1);
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.nodePointCoreDot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background-color: var(--gold-atelier);
+  border-radius: 50%;
+  top: -4px;
+  left: 0;
+}
+
+.timelineChronologyNode h4 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 0.8rem 0;
+}
+
+.timelineChronologyNode p {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* SECTION 9: AI COUTURE UPLINK INTERACT FRAME */
+.aiMatchSection {
+  padding: 8rem 6%;
+}
+
+.aiMatchInternalSplitFrame {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--white-solid);
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid rgba(27,27,27,0.03);
+}
+
+.aiMatchPromoPanel {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aiMatchPromoPanel h3 {
+  font-size: 2.2rem;
+  font-weight: 200;
+  margin: 0.6rem 0 1.5rem 0;
+}
+
+.aiMatchPromoPanel p {
+  color: #555555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.aiMatchUplinkInteractionPanel {
+  padding: 5rem;
+  background-color: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.virtualDropZoneTargetFrame {
+  border: 1px dashed rgba(199, 161, 90, 0.4);
+  background-color: var(--white-solid);
+  padding: 3rem;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.dropZoneInternalGraphics {
+  font-size: 1.5rem;
+  color: var(--gold-atelier);
+  margin-bottom: 1rem;
+}
+
+.virtualDropZoneTargetFrame p {
+  font-size: 0.9rem;
+  color: #777777;
+  margin: 0 0 2rem 0;
+}
+
+.uploadTriggerActionButton {
+  background-color: var(--charcoal-atelier);
+  color: var(--white-solid);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.aiResponseDisplayPlaque {
+  margin-top: 2rem;
+  background-color: #fffdec;
+  padding: 1.5rem;
+  border: 1px solid rgba(199, 161, 90, 0.2);
+}
+
+.aiResponseDisplayPlaque h5 {
+  margin: 0 0 0.4rem 0;
+  color: var(--gold-atelier);
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+}
+
+.aiResponseDisplayPlaque p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* SECTION 10: ATELIER FILING SECRETS SHUTTERS */
+.insiderSecretsSection {
+  padding: 8rem 6%;
+  background-color: var(--ivory-atelier);
+}
+
+.secretsTripleCardLayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.secretLuxuryFilingCard {
+  background-color: var(--white-solid);
+  padding: 3.5rem 2.5rem;
+  border: 1px solid rgba(27,27,27,0.02);
+}
+
+.secretCardStarCluster {
+  color: var(--gold-atelier);
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.secretLuxuryFilingCard h4 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+
+.secretLuxuryFilingCard p {
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* SECTION 11: COMPLIANCE ACCORDION COMPONENT SYSTEM */
+.atelierFaqAccordionSection {
+  padding: 8rem 6%;
+}
+
+.faqStructuralStackLayout {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faqAccordionComponentItem {
+  background-color: var(--white-solid);
+  border: 1px solid rgba(27,27,27,0.03);
+}
+
+.faqInteractiveHeaderTrigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--charcoal-atelier);
+}
+
+.faqInteractiveStatusIndicator {
+  font-size: 1.4rem;
+  color: var(--gold-atelier);
+  font-weight: 300;
+}
+
+.faqAccordionContentSliderPane {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faqPaneExpandedActive {
+  max-height: 200px;
+}
+
+.faqContentInnerPaddingLayout {
+  padding: 0 2rem 2rem 2rem;
+  border-top: 1px solid rgba(27,27,27,0.02);
+}
+
+.faqContentInnerPaddingLayout p {
+  margin: 1rem 0 0 0;
+  color: #666666;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* SECTION 12: CLOSING EXECUTIVE CONSOLE TERMINATION */
+.finalClosingCtaSection {
+  padding: 8rem 6%;
+  background-color: var(--charcoal-atelier);
+  color: var(--white-solid);
+  text-align: center;
+}
+
+.finalClosingPolishedInnerShield {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.finalClosingPolishedInnerShield h2 {
+  font-size: 2.8rem;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.finalClosingPolishedInnerShield p {
+  color: #b5af9f;
+  max-width: 550px;
+  margin: 0 auto 3.5rem auto;
+  line-height: 1.7;
+}
+
+.ultimateConsoleActionExecuteButton {
+  background-color: transparent;
+  border: 1px solid var(--white-solid);
+  color: var(--white-solid);
+  padding: 1.2rem 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ultimateConsoleActionExecuteButton:hover {
+  background-color: var(--white-solid);
+  color: var(--charcoal-atelier);
+}
+
+/* UNIFIED RESPONSIVE STRUCTURAL OVERRIDES */
+@media (max-width: 1024px) {
+  .intentCardLayoutGrid, .appleStyleTripleGrid, .careQuadLayoutGrid, .secretsTripleCardLayout {
+    grid-template-columns: 1fr;
+  }
+  .hubSplitControlMatrix, .aiMatchInternalSplitFrame {
+    grid-template-columns: 1fr;
+  }
+  .heroMainTypography { font-size: 2.8rem; }
+  .centeredAtelierHeader h2 { font-size: 2rem; }
+  .hubDynamicDisplayCard, .advisorModuleGlassFrame, .aiMatchPromoPanel, .aiMatchUplinkInteractionPanel {
+    padding: 2.5rem 1.5rem;
+  }
+}

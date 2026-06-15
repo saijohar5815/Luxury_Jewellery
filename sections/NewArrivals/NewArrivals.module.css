@@ -1,0 +1,494 @@
+.wrapper {
+  background-color: #F7F5F0; /* Soft luxury silk tone, beautiful alternative to stark black or basic white */
+  padding: 140px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- Premium Dynamic Header Layout --- */
+.header {
+  text-align: center;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pulseBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(181, 148, 16, 0.15);
+  margin-bottom: 24px;
+}
+
+.pulseRing {
+  width: 6px;
+  height: 6px;
+  background-color: #B59410;
+  border-radius: 50%;
+  position: relative;
+}
+
+.pulseRing::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  animation: radarGlow 2.5s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.badgeText {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 600;
+}
+
+.title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0 0 16px 0;
+  color: #1A1A1A;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #666666;
+  max-width: 550px;
+  line-height: 1.7;
+}
+
+/* --- Asymmetrical Editorial Grid Alignment --- */
+.asymmetricGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.cardFrame {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+}
+
+/* Asymmetrical staggered baseline placement for a magazine editor aesthetic */
+.position_0 { grid-column: span 4; transform: translateY(0); }
+.position_1 { grid-column: span 4; transform: translateY(60px); }
+.position_2 { grid-column: span 4; transform: translateY(-30px); }
+
+.imageCanvas {
+  position: relative;
+  height: 480px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #FBFBFA;
+  cursor: crosshair;
+}
+
+.tagLabel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(26, 26, 26, 0.9);
+  color: #ffffff;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 12px;
+  z-index: 5;
+}
+
+/* --- Cross-Fade Image Animations --- */
+.baseImage, .revealImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.revealImage {
+  opacity: 0;
+  transform: scale(1.08);
+}
+
+.imageOut {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.imageIn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Fluid Floating Information Cursor --- */
+.fluidPointerRibbon {
+  position: absolute;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(181, 148, 16, 0.2);
+  padding: 16px;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 15px 35px rgba(27, 26, 24, 0.08);
+  animation: ribbonPop 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.ribbonSku {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #B59410;
+  font-weight: 700;
+}
+
+.ribbonNote {
+  font-size: 11px;
+  color: #444444;
+  line-height: 1.4;
+}
+
+/* --- Content Metadata Section --- */
+.cardDetails {
+  padding: 24px 4px 10px 4px;
+}
+
+.seriesLine {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pieceName {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 16px 0;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 16px;
+}
+
+.piecePrice {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.acquireBtn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.arrowIcon {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Hover Framerate Enhancements --- */
+.cardFrame:hover {
+  transform: translateY(var(--tw-translate-y, 0)) scale(1.02);
+  box-shadow: 0 30px 70px rgba(27, 26, 24, 0.07);
+}
+
+/* Maintain custom asymmetrical offset heights during subtle hover scaling scaling */
+.position_0:hover { transform: translateY(-5px) scale(1.01); }
+.position_1:hover { transform: translateY(55px) scale(1.01); }
+.position_2:hover { transform: translateY(-35px) scale(1.01); }
+
+.cardFrame:hover .acquireBtn {
+  color: #B59410;
+}
+
+.cardFrame:hover .arrowIcon {
+  transform: translateX(6px);
+}
+
+/* --- Core Keyframes Animations --- */
+@keyframes radarGlow {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+@keyframes ribbonPop {
+  0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+  100% { opacity: 1; }
+}
+
+/* --- Responsive Layout Rules --- */
+@media (max-width: 1024px) {
+  .asymmetricGrid {
+    gap: 20px;
+  }
+  .cardFrame {
+    grid-column: span 6 !important;
+    transform: none !important; /* Flatten grid asymmetry safely on smaller viewports */
+  }
+  .cardFrame:hover {
+    transform: translateY(-5px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardFrame {
+    grid-column: span 12 !important;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .imageCanvas {
+    height: 400px;
+  }
+}
+
+/* --- Background Shift Physics --- */
+.wrapper {
+  transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.backgroundBlurred {
+  filter: blur(15px); /* Soft architectural background blur */
+  transform: scale(0.98); /* Luxury card receding depth animation effect */
+  pointer-events: none;
+}
+
+/* --- High Jewelry Modal Panel --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(250, 248, 245, 0.7); /* Alabaster Silk light overlay tint */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation: fadeInOverlay 0.4s ease forwards;
+}
+
+.modalBox {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  max-height: 90vh;
+  box-shadow: 0 40px 90px rgba(27, 26, 24, 0.12);
+  border: 1px solid rgba(181, 148, 16, 0.15);
+  overflow-y: auto;
+  animation: modalSlideUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.modalSplit {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 600px;
+}
+
+.modalImageFrame {
+  width: 100%;
+  height: 100%;
+  background-color: #F6F4F0;
+}
+
+.modalImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modalContentFrame {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modalTag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #B59410;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modalTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #1A1A1A;
+  margin: 0 0 14px 0;
+}
+
+.modalPrice {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A1A;
+  letter-spacing: 0.5px;
+}
+
+.dividerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.06);
+  margin: 30px 0;
+}
+
+/* --- Specifications Ledger --- */
+.specLedger {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+  padding-bottom: 8px;
+}
+
+.specLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #888888;
+}
+
+.specValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.modalNarrative {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555555;
+  margin-bottom: 45px;
+}
+
+/* --- Action Configurations --- */
+.actionRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactConciergeBtn {
+  width: 100%;
+  background-color: #1A1A1A;
+  color: #ffffff;
+  border: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 18px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contactConciergeBtn:hover {
+  background-color: #B59410;
+}
+
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666666;
+  cursor: pointer;
+  align-self: center;
+  padding: 4px 10px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.closeModalBtn:hover {
+  color: #1A1A1A;
+}
+
+/* --- Modal Cinematic Transitions --- */
+@keyframes fadeInOverlay {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(8px); }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Mobile Adaptability --- */
+@media (max-width: 900px) {
+  .modalOverlay {
+    padding: 15px;
+  }
+  .modalSplit {
+    grid-template-columns: 1fr;
+  }
+  .modalImageFrame {
+    height: 300px;
+  }
+  .modalContentFrame {
+    padding: 30px 20px;
+  }
+  .modalTitle {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,785 @@
+/* Core Structural Tokens & Layer Reset Configuration */
+.luxuryCanvas {
+  background-color: #F8F6F2; /* Alabaster Silk */
+  color: #111111;            /* Onyx Ink */
+  font-family: -apple-system, BlinkMacSystemFont, 'Didot', 'Bodoni MT', serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* GLOBAL TEXT DESIGN REINFORCEMENTS */
+.centeredHeader {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 5rem auto;
+}
+
+.goldPreTitle {
+  color: #C8A96A; /* Sovereign Cast Gold */
+  font-size: 0.75rem;
+  letter-spacing: 0.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.15;
+}
+
+.sectionTitle {
+  font-size: 2.6rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+
+.subTitle {
+  color: #555555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* SECTION 1: CATEGORY ARRAY */
+.categorySection {
+  padding: 8rem 6% 4rem 6%;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.categoryCard {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17, 17, 17, 0.03);
+  transition: all 0.5rem cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.categoryVisualStage {
+  height: 240px;
+  background: radial-gradient(circle, #f3f0e8 0%, #e3ded4 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryIconGraphic {
+  font-size: 3.5rem;
+  z-index: 5;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.abstractFineGridOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(199, 169, 106, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(199, 169, 106, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.categoryContentBlock {
+  padding: 2rem;
+  text-align: center;
+}
+
+.categoryContentBlock h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0 0 0.8rem 0;
+}
+
+.categoryContentBlock p {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  min-height: 40px;
+}
+
+.editorialActionLink {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: #111111;
+  border-bottom: 1px solid #C8A96A;
+  padding-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+/* Category Hovers */
+.categoryCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(17,17,17,0.05);
+  border-color: rgba(198, 169, 106, 0.3);
+}
+
+.categoryCard:hover .categoryIconGraphic {
+  transform: scale(1.15);
+}
+
+.categoryCard:hover .editorialActionLink {
+  color: #C8A96A;
+}
+
+/* SECTION 2: BEST SELLERS CARD ARCHITECTURE */
+.bestSellersSection {
+  padding: 6rem 6%;
+}
+
+.bestSellersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.productPremiumCard {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17, 17, 17, 0.02);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.productVisualStage {
+  height: 380px;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #e8e4db 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.wishlistAnchor {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(17,17,17,0.06);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.wishlistActive {
+  background-color: #111111;
+  color: #C8A96A;
+  border-color: #111111;
+}
+
+.simulatedProductReflection {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(198, 169, 106, 0.15);
+  transform: rotate(45deg);
+  top: 40%;
+  left: 50%;
+  margin-left: -40px;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quickViewActionBanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.95);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.productMetaInfo {
+  padding: 2rem;
+  text-align: center;
+}
+
+.starRatingRow {
+  color: #C8A96A;
+  letter-spacing: 0.2rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.productNameHeading {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02rem;
+}
+
+.goldHorizontalRule {
+  width: 35px;
+  height: 1px;
+  background-color: #C8A96A;
+  margin: 0 auto 1rem auto;
+}
+
+.productPriceString {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 1.5rem 0;
+}
+
+.viewDetailsLuxuryButton {
+  background: transparent;
+  border: 1px solid rgba(17,17,17,0.15);
+  padding: 0.8rem 1.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Product Premium Card Hovers */
+.productPremiumCard:hover {
+  border-color: #C8A96A;
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(17,17,17,0.06);
+}
+
+.productPremiumCard:hover .simulatedProductReflection {
+  transform: rotate(135deg) scale(1.15);
+  border-color: rgba(198, 169, 106, 0.5);
+}
+
+.productPremiumCard:hover .quickViewActionBanner {
+  transform: translateY(0);
+}
+
+.productPremiumCard:hover .viewDetailsLuxuryButton {
+  background-color: #111111;
+  color: #FFFFFF;
+  border-color: #111111;
+}
+
+/* SECTION 3: SHOP BY SHAPE SYSTEM INTERACTION */
+.shapeSection {
+  padding: 6rem 6%;
+  background-color: #F1EFEA;
+}
+
+.shapeSelectorStrip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.shapeSelectionTab {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17,17,17,0.04);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shapeGlyphBox {
+  font-size: 1.1rem;
+  color: #C8A96A;
+}
+
+.shapeTabTextLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  color: #555555;
+}
+
+.shapeSelectionTab:hover, .activeShapeTab {
+  background-color: #111111;
+  border-color: #111111;
+}
+
+.shapeSelectionTab:hover .shapeTabTextLabel, .activeShapeTab .shapeTabTextLabel {
+  color: #FFFFFF;
+}
+
+.shapeDynamicOutputArea {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.shapeShowcaseContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17,17,17,0.02);
+  animation: elementEntranceFade 0.6s ease forwards;
+}
+
+@keyframes elementEntranceFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.shapeBlueprintLeft {
+  background-color: #161616;
+  min-height: 380px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.geometricBlueprintMatrixLine {
+  width: 150px;
+  height: 150px;
+  border: 1px dashed rgba(198, 169, 106, 0.25);
+  background-image: radial-gradient(circle, rgba(198,169,106,0.05) 0%, transparent 70%);
+}
+
+.blueprintTechnicalTag {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: #C8A96A;
+  font-size: 0.7rem;
+  letter-spacing: 0.2rem;
+}
+
+.shapeDetailsRight {
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shapeDetailsRight h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.shapeEditorialParagraph {
+  color: #555555;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.shapePricingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shapePrice {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.acquireAllocationButton {
+  background-color: #111111;
+  color: #FFFFFF;
+  border: none;
+  padding: 1rem 2.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acquireAllocationButton:hover {
+  background-color: #C8A96A;
+}
+
+/* SECTION 4: WHY CHOOSE US VALUE MATRICES */
+.valueSection {
+  padding: 8rem 6%;
+}
+
+.valuePropMatrixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.valueLuxuryCard {
+  background-color: #FFFFFF;
+  padding: 3.5rem 2.5rem;
+  border: 1px solid rgba(17,17,17,0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.valueIconCircle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.valueLuxuryCard h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02rem;
+}
+
+.valueLuxuryCard p {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.valueLuxuryCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(198, 169, 106, 0.4);
+  box-shadow: 0 15px 35px rgba(17,17,17,0.04);
+}
+
+/* SECTION 5: COMPLETE THE LOOK HARMONY ENGINE */
+.lookSection {
+  padding: 6rem 6%;
+  background-color: #F3ECE2;
+}
+
+.lookLayoutDashboard {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.lookStagingCanvas {
+  height: 520px;
+  background: radial-gradient(circle, #FFFFFF 0%, #e2dad0 100%);
+  border: 1px solid rgba(17,17,17,0.04);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simulatedModelSilhouette {
+  width: 220px;
+  height: 380px;
+  border: 1px dashed rgba(17,17,17,0.12);
+  position: relative;
+}
+
+.canvasHotspotPointer {
+  position: absolute;
+  color: #C8A96A;
+  font-size: 1.1rem;
+  animation: structuralHotspotGlow 2.5s infinite ease-in-out;
+}
+
+.posEarrings { top: 15%; left: 50%; transform: translateX(-50%); }
+.posNecklace { top: 38%; left: 50%; transform: translateX(-50%); }
+.posRing { top: 72%; left: 25%; }
+
+@keyframes structuralHotspotGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 8px #C8A96A); }
+}
+
+.lookManifestListingSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.lookManifestHeader h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0 0 0.5rem 0;
+}
+
+.lookManifestHeader p {
+  color: #666666;
+  margin: 0 0 1.5rem 0;
+}
+
+.lookComponentItemRow {
+  background-color: #FFFFFF;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.lookItemIndexNumber {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #C8A96A;
+  letter-spacing: 0.1rem;
+}
+
+.lookComponentItemRow h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.goldPriceText {
+  color: #C8A96A;
+  font-weight: 700;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.lookComponentItemRow:hover {
+  border-left-color: #C8A96A;
+  transform: translateX(4px);
+}
+
+.acquireFullLookSatinButton {
+  background-color: #111111;
+  color: #FFFFFF;
+  border: none;
+  padding: 1.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.acquireFullLookSatinButton:hover {
+  background-color: #C8A96A;
+}
+
+/* SECTION 6: TRENDING MASSIVE BILLBOARDS */
+.trendingSection {
+  padding: 8rem 6%;
+}
+
+.trendingMassiveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.massiveTrendBillboardCard {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17,17,17,0.02);
+}
+
+.massiveTrendVisualCanvas {
+  height: 440px;
+  background-color: #1a1a1a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.trendCanvasGraphicAbstractLine {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(198, 169, 106, 0.2), transparent);
+}
+
+.trendCanvasCardIndexIndicator {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.65rem;
+  letter-spacing: 0.15rem;
+}
+
+.massiveTrendFooterDetails {
+  padding: 2rem;
+}
+
+.massiveTrendFooterDetails h3 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem 0;
+}
+
+.massiveTrendFooterDetails p {
+  color: #777777;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* SECTION 7: COLLECTOR REVIEWS */
+.reviewsSection {
+  padding: 6rem 6%;
+  background-color: #FFFFFF;
+}
+
+.reviewsCarouselTrack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.testimonialLuxuryCard {
+  padding: 2.5rem;
+  background-color: #F8F6F2;
+  border-top: 2px solid #C8A96A;
+}
+
+.testimonialQuoteText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333333;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+.testimonialAuthorString {
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  color: #777777;
+  font-weight: 600;
+  display: block;
+}
+
+/* SECTION 8: STRUCTURAL SELECTION GUIDE MANAGEMENT */
+.guideSection {
+  padding: 8rem 6%;
+  background-color: #F4F2ED;
+}
+
+.guideInteractiveFrameworkDashboard {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 4rem auto 0 auto;
+  background-color: #FFFFFF;
+  padding: 3.5rem;
+  border: 1px solid rgba(17,17,17,0.03);
+}
+
+.guideNavigationSidebarTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-right: 1px solid rgba(17,17,17,0.06);
+  padding-right: 2rem;
+}
+
+.guideSidebarTabButton {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  color: #777777;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeGuideStepTab {
+  color: #111111;
+  background-color: #F8F6F2;
+  border-left: 2px solid #C8A96A;
+}
+
+.guideInformationalBodyContentWindow {
+  display: flex;
+  align-items: center;
+  min-height: 250px;
+}
+
+.guideStepSlideAnimationWrapper h3 {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 0 0 1.2rem 0;
+}
+
+.guideStepSlideAnimationWrapper p {
+  color: #555555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* SECTION 9: ULTRA-PREMIUM VAULT CALL TO ACTION STRIP */
+.callToActionFinalSection {
+  padding: 8rem 6%;
+  background: radial-gradient(circle at center, #1f1f1f 0%, #111111 100%);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.ctaGlassShieldBlunderBoundary {
+  max-width: 850px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 6rem 2rem;
+  backdrop-filter: blur(15px);
+}
+
+.callToActionFinalSection h2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.callToActionFinalSection p {
+  color: #A0A0A0;
+  max-width: 580px;
+  margin: 0 auto 3.5rem auto;
+  line-height: 1.7;
+}
+
+.ctaMasterworkExecutionCallButton {
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 1.2rem 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaMasterworkExecutionCallButton:hover {
+  background-color: #FFFFFF;
+  color: #111111;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* FULL STREAM RESPONSIVE ADAPTABILITY MATRIX */
+@media (max-width: 1024px) {
+  .categoryGrid { grid-template-columns: repeat(2, 1fr); }
+  .bestSellersGrid, .valuePropMatrixGrid, .trendingMassiveGrid, .reviewsCarouselTrack { grid-template-columns: 1fr; }
+  .shapeShowcaseContainer, .lookLayoutDashboard, .guideInteractiveFrameworkDashboard { grid-template-columns: 1fr; }
+  .guideNavigationSidebarTabs { border-right: none; border-bottom: 1px solid rgba(17,17,17,0.06); padding-right: 0; padding-bottom: 2rem; }
+  .shapeDetailsRight, .ctaGlassShieldBlunderBoundary { padding: 3rem 1.5rem; }
+  .mainTitle { font-size: 2.4rem; }
+}

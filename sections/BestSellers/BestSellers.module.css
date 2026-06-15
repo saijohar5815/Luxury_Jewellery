@@ -1,0 +1,249 @@
+.wrapper {
+  background-color: #FAF8F5; /* Crisp Ivory Silk background for perfect continuation */
+  padding: 120px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  /* Soft light divider to subtly separate sections without harsh lines */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+/* --- Header System --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.preTitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #B59410; /* Deep rich bronze gold for legible contrast */
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 44px;
+  font-weight: 400;
+  color: #1A1A1A; /* Crisp luxury charcoal black */
+  margin: 0;
+}
+
+.swipeHint {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #777777;
+  padding-bottom: 8px;
+}
+
+/* --- Scroll Track Pipeline --- */
+.scrollTrack {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 40px;
+  cursor: grab;
+}
+
+.scrollTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollTrack:active {
+  cursor: grabbing;
+}
+
+/* --- Jewelry Card Architecture --- */
+.card {
+  flex: 0 0 calc(33.333% - 20px);
+  min-width: 380px;
+  background-color: #ffffff; /* Pure white floating canvas panels */
+  box-shadow: 0 15px 45px rgba(27, 26, 24, 0.06); /* Soft premium shadow */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.clickableArea {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.mediaContainer {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background-color: #FBFBFA;
+}
+
+.imageMain,
+.imageHover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+
+.imageHover {
+  opacity: 0;
+}
+
+.tagLabel {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(181, 148, 16, 0.3);
+  color: #B59410;
+  padding: 6px 14px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  z-index: 5;
+}
+
+/* Elegant quick view overlay customized for light backgrounds */
+.bagOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  padding: 20px 0;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 4;
+  border-top: 1px solid rgba(181, 148, 16, 0.15);
+}
+
+.bagOverlay span {
+  color: #1A1A1A;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* --- Card Content Details --- */
+.details {
+  padding: 24px 10px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.productTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productPrice {
+  font-size: 15px;
+  color: #B59410;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* --- Dynamic Multi-Image Hover Interactions --- */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(27, 26, 24, 0.12);
+}
+
+.card:hover .imageMain {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.card:hover .imageHover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.card:hover .bagOverlay {
+  transform: translateY(0);
+}
+
+/* --- Minimalist Progress Timeline Element --- */
+.timelineTrack {
+  position: relative;
+  width: 200px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.08);
+  margin: 40px auto 0 auto;
+  overflow: hidden;
+}
+
+.timelineBar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #B59410;
+  transition: left 0.1s linear, width 0.1s linear;
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 15px);
+    min-width: 320px;
+  }
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 85%;
+    min-width: 280px;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .mediaContainer {
+    height: 380px;
+  }
+}
+
+.clickableArea:hover .imageHover {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.clickableArea:hover .imageMain {
+  transform: scale(1.04);
+}

@@ -1,0 +1,182 @@
+.wrapper {
+  background-color: #FBF9F6; /* Luxury Warm Alabaster Stone */
+  padding: 160px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- Imagery Layer Stack --- */
+.visualColumn {
+  grid-column: span 6;
+  position: relative;
+  height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+.mainImageFrame {
+  width: 75%;
+  height: 80%;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(27, 26, 24, 0.15); /* Softer luxury shadow for light surfaces */
+}
+
+.secondaryImageFrame {
+  width: 55%;
+  height: 60%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+  overflow: hidden;
+  border: 12px solid #FBF9F6; /* Crisp physical cutout boundary */
+  box-shadow: -20px 20px 60px rgba(27, 26, 24, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.visualColumn:hover .image {
+  transform: scale(1.03);
+}
+
+/* Luxury geometric layout wire frame */
+.geometryBackdrop {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  width: 60%;
+  height: 75%;
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Subtle Warm Ochre Line */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- Editorial Layout Narrative --- */
+.contentColumn {
+  grid-column: span 6;
+}
+
+.narrativeBox {
+  max-width: 540px;
+}
+
+.goldSubtitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #B59410; /* Deeper, rich bronze gold for optimal contrast */
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.mainTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #1A1A1A; /* Crisp luxury black typography */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.lineDivider {
+  width: 80px;
+  height: 1px;
+  background-color: #C5A059;
+  margin: 30px 0;
+}
+
+.leadText {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #2D2D2D;
+  font-family: 'Urbanist', sans-serif;
+  margin-bottom: 24px;
+}
+
+.bodyText {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555555;
+  margin-bottom: 48px;
+}
+
+/* --- Brand Prestige Metrics --- */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 35px;
+}
+
+.metricNumber {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 32px;
+  color: #1A1A1A;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 300;
+}
+
+.metricLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 500;
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .visualColumn, .contentColumn {
+    grid-column: span 12;
+  }
+  .visualColumn {
+    height: 500px;
+  }
+  .mainTitle {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visualColumn {
+    height: 380px;
+  }
+  .wrapper {
+    padding: 100px 0;
+  }
+  .secondaryImageFrame {
+    border-width: 6px;
+  }
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

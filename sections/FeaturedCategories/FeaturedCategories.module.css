@@ -1,0 +1,222 @@
+.wrapper {
+  background-color: #0b0b0b; /* Deep luxury dark background */
+  padding: 120px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+/* --- Section Header Styles --- */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.preTitle {
+  font-family: inherit;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #D4AF37; /* Luxury Gold */
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 44px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background-color: rgba(212, 175, 55, 0.4);
+  margin: 24px auto 0 auto;
+}
+
+/* --- Asymmetric Grid Layout --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+/* Alternating sizing structure for high-end catalog look */
+.card:nth-child(1),
+.card:nth-child(4) {
+  grid-column: span 7;
+}
+
+.card:nth-child(2),
+.card:nth-child(3) {
+  grid-column: span 5;
+}
+
+.card {
+  position: relative;
+  height: 540px;
+  background-color: #111111;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Interactive Hover Effects --- */
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  transition: opacity 0.6s ease;
+}
+
+/* Card Content Frame */
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  z-index: 3;
+  color: #ffffff;
+}
+
+.itemCount {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+.cardTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.5px;
+}
+
+.ctaText {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37;
+  display: inline-flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.arrow {
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Luxury Decorative Outline */
+.borderAccent {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0);
+  z-index: 2;
+  pointer-events: none;
+  transition: border-color 0.6s ease;
+}
+
+/* --- Universal Hover Activations --- */
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+.card:hover .borderAccent {
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.card:hover .itemCount {
+  color: #D4AF37;
+}
+
+.card:hover .ctaText {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 1024px) {
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    grid-column: span 6;
+  }
+  .card {
+    height: 440px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    grid-column: span 12;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .card {
+    height: 380px;
+  }
+  .ctaText {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

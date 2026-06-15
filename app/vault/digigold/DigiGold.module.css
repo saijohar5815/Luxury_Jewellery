@@ -1,0 +1,343 @@
+.goldCanvas {
+  background: linear-gradient(135deg, #FAF7F0 0%, #F1ECE1 50%, #E6DEC9 100%);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 5% 120px 5%;
+  box-sizing: border-box;
+}
+
+/* --- Ambient Backdrops & Particles --- */
+.liquidGoldOrb {
+  position: absolute;
+  top: -20%;
+  left: 25%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(235, 219, 178, 0.45) 0%, rgba(250, 247, 240, 0) 75%);
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.metallicDustOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Layout Navigation Layer --- */
+.navBar, .masterContentLayout {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.directoryLink {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #2D2A22;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrowBack { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.directoryLink:hover .arrowBack { transform: translateX(-6px); }
+
+/* Live Ticker Modules */
+.liveTickerContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+
+.tickerPulseDot {
+  width: 6px;
+  height: 6px;
+  background-color: #A38237;
+  border-radius: 50%;
+  animation: pulseBeacon 1.8s infinite ease-in-out;
+}
+
+.tickerLabel { font-size: 11px; color: #6E685A; font-weight: 500; }
+.tickerValue { font-size: 12px; font-weight: 700; color: #2D2A22; transition: color 0.3s ease; }
+
+.pulsePriceText { color: #A38237 !important; transform: scale(1.02); }
+
+/* --- Split Configuration Pillars --- */
+.masterContentLayout {
+  display: grid;
+  grid-template-columns: minmax(300px, 5.2fr) minmax(340px, 6.8fr);
+  gap: 90px;
+  align-items: center;
+}
+
+/* --- Left Control Core Layout --- */
+.controlModule { width: 100%; }
+.goldSubcap { font-size: 10px; text-transform: uppercase; letter-spacing: 4px; color: #A38237; font-weight: 800; display: block; margin-bottom: 16px; }
+.mainTitle { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 400; color: #1E1C17; margin: 0 0 20px 0; letter-spacing: -0.5px; }
+.narrativeIntro { font-size: 14px; line-height: 1.65; color: #5C564A; margin-bottom: 40px; }
+
+/* 🌟 The Interactive Range Scaler UI */
+.rangeScaleContainer {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+}
+
+.rangeHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.scaleMinMax { font-size: 12px; font-weight: 600; color: #918978; }
+
+.centralDisplayBadge {
+  text-align: center;
+  background: #FFFFFF;
+  padding: 10px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(163, 130, 55, 0.05);
+  border: 1px solid rgba(163, 130, 55, 0.1);
+}
+
+.weightNumber { font-size: 32px; font-weight: 300; color: #1E1C17; font-family: 'Playfair Display', serif; display: block; line-height: 1; }
+.weightUnit { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #A38237; font-weight: 700; margin-top: 4px; display: block; }
+
+.fluidKineticSlider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(163, 130, 55, 0.15);
+  border-radius: 2px;
+  outline: none;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.fluidKineticSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1E1C17;
+  border: 2px solid #E6DEC9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+}
+
+.fluidKineticSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #A38237;
+}
+
+.presetRow { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+
+.presetPill {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #5C564A;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presetPill:hover, .activePresetPill {
+  background: #1E1C17;
+  color: #FFFFFF;
+  border-color: #1E1C17;
+}
+
+/* --- Minting Tier Architecture Options --- */
+.sectionLabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #1E1C17; margin: 0 0 16px 0; font-weight: 700; }
+.tierSelectorGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.tierCard {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 22px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.tierCard:hover { background-color: #FFFFFF; transform: translateY(-2px); }
+
+.tierCardActive {
+  background: #FFFFFF !important;
+  box-shadow: 0 20px 40px rgba(163, 130, 55, 0.05);
+}
+
+.tierPurityBadge { font-size: 8.5px; text-transform: uppercase; letter-spacing: 1px; color: #A38237; font-weight: 800; background: rgba(163,130,55,0.08); padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+.tierTitle { font-size: 15px; font-weight: 600; color: #1E1C17; margin: 0 0 6px 0; }
+.tierDesc { font-size: 12.5px; line-height: 1.45; color: #6E685A; margin: 0; }
+
+.tierActiveIndicatorBorder { position: absolute; inset: -1px; border: 1px solid #A38237; border-radius: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.tierCardActive .tierActiveIndicatorBorder { opacity: 1; }
+
+/* --- Right Side: The Prism Mirror Glass Liquid Ledger --- */
+.receiptMirrorSection { width: 100%; }
+
+.prismMirrorGlass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 40px 80px rgba(45, 42, 34, 0.04);
+  overflow: hidden;
+}
+
+.glassReflectionGlare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0) 45%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 55%);
+  pointer-events: none;
+  transform: rotate(25deg);
+}
+
+.mirrorHeader { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(0,0,0,0.08); padding-bottom: 20px; margin-bottom: 30px; }
+.mirrorLabel { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #2D2A22; font-weight: 700; }
+.vaultIdBadge { font-size: 9px; font-family: monospace; color: #918978; background: rgba(0,0,0,0.04); padding: 2px 8px; border-radius: 4px; }
+
+/* Dynamic Bar Stack Simulation Graphic */
+.weightVisualizationBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.3);
+  padding: 30px 0;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+.geometricGoldBarStack {
+  height: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
+  width: 140px;
+}
+
+.renderedGoldInvenBar {
+  width: 120px;
+  height: 10px;
+  background: linear-gradient(90deg, #E6C875 0%, #F5E3A8 50%, #D4B355 100%);
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(163, 130, 55, 0.2);
+  position: absolute;
+  bottom: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: enterBar 0.5s forwards ease-out;
+}
+
+.visWeightSub { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #918978; margin-top: 15px; }
+
+/* Itemized Ledger Details */
+.calculationLedgerStack { display: flex; flex-direction: column; gap: 14px; }
+.ledgerRow { display: flex; justify-content: space-between; align-items: center; }
+.ledgerLabel { font-size: 13.5px; color: #6E685A; }
+.ledgerValue { font-size: 14px; font-weight: 600; color: #1E1C17; }
+.ledgerValueGold { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #A38237; letter-spacing: 0.5px; }
+.ledgerDottedDivider { height: 1px; border-bottom: 1px dashed rgba(0,0,0,0.08); margin: 10px 0; }
+
+.totalValuationRow { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 10px; }
+.totalLabel { font-size: 13px; font-weight: 700; color: #2D2A22; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 6px; }
+.totalPriceWrapper { text-align: right; }
+.totalCurrency { font-size: 10px; font-weight: 800; color: #A38237; display: block; margin-bottom: -2px; }
+.totalPriceAmount { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; color: #1E1C17; margin: 0; line-height: 1; }
+
+/* Transaction Trigger Button */
+.executeTransactionBtn {
+  width: 100%;
+  background: #1E1C17;
+  color: #FFFFFF;
+  border: none;
+  padding: 18px 0;
+  border-radius: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.executeTransactionBtn:hover {
+  background: #A38237;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(163, 130, 55, 0.25);
+}
+
+.btnArrow { transition: transform 0.3s ease; }
+.executeTransactionBtn:hover .btnArrow { transform: translateX(5px); }
+
+.legalDisclaimerHint { font-size: 11px; line-height: 1.45; color: #918978; text-align: center; margin: 20px 0 0 0; }
+
+/* --- Staged & Kinetic Animation Frame Injections --- */
+@keyframes pulseBeacon {
+  0% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(163, 130, 55, 0.5); }
+  70% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 6px rgba(163, 130, 55, 0); }
+  100% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(163, 130, 55, 0); }
+}
+
+@keyframes enterBar {
+  from { transform: translateY(-15px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(inherit); opacity: inherit; }
+}
+
+/* --- Breakpoint Media Matrix Remapping --- */
+@media (max-width: 1024px) {
+  .masterContentLayout { grid-template-columns: 1fr; gap: 50px; }
+  .mainTitle { font-size: 34px; }
+  .tierSelectorGrid { grid-template-columns: 1fr; }
+  .prismMirrorGlass { padding: 30px; }
+}

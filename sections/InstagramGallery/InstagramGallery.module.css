@@ -1,0 +1,248 @@
+.wrapper {
+  background-color: #F9F9FB; /* Ultra-Premium Clean Platinum Soft Cream Light Canvas */
+  padding: 120px 0;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(185, 148, 16, 0.12);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- Editorial Header Formatting --- */
+.headerBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 35px;
+}
+
+.titleMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accentBadge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #B59410; /* Signature Rich Gold Brand Accent */
+  font-weight: 700;
+}
+
+.sectionTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: #111111;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.editorialDesc {
+  max-width: 420px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* --- Kinetic Flex Grid Deck Engine --- */
+.kineticDeck {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  height: 520px;
+}
+
+.deckCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1; /* Equally balances widths at rest state */
+  text-decoration: none;
+  transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+/* --- Dynamic Asymmetric Width Scaling States --- */
+.cardExpanded {
+  flex: 1.8 !important; /* Gracefully expands the active photo container */
+}
+
+.cardCompressed {
+  flex: 0.74 !important; /* Elegantly compresses non-active nodes away */
+  opacity: 0.45;
+}
+
+/* --- Media Window Housing --- */
+.mediaWindow {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  background-color: #EAEAEA;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+}
+
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cardExpanded .postImage {
+  transform: scale(1.05);
+}
+
+/* --- Luxury Diamond Prism Sweep Animation --- */
+.prismOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.28) 45%,
+    rgba(185, 148, 16, 0.15) 50%,
+    rgba(255, 255, 255, 0.28) 55%,
+    transparent 70%
+  );
+  transform: translateX(-150%);
+  transition: none;
+  pointer-events: none;
+}
+
+.cardExpanded .prismOverlay {
+  transform: translateX(150%);
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Smooth Up-Sliding Interaction Metadata Overlay --- */
+.hoverMetaSlate {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 20%, rgba(17, 17, 17, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 35px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cardExpanded .hoverMetaSlate {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.metaTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.categoryLabel {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 600;
+}
+
+.likeMetric {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #FFFFFF;
+  font-family: monospace;
+}
+
+.captionSnippet {
+  color: #CCCCCC;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 25px 0;
+}
+
+.viewAction {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+.deckCard:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+/* --- Static Clean Base Labels --- */
+.cardBaseLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 0 2px;
+  transition: opacity 0.3s ease;
+}
+
+.cardExpanded .cardBaseLabel {
+  opacity: 0; /* Clear labels out cleanly when hover details expand into focus */
+}
+
+.serialNo {
+  font-family: monospace;
+  font-size: 11px;
+  color: #999999;
+}
+
+.baseCategory {
+  font-size: 12px;
+  color: #222222;
+  font-weight: 500;
+}
+
+/* --- Viewport Breakpoints --- */
+@media (max-width: 1024px) {
+  .headerBlock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .kineticDeck {
+    flex-direction: column;
+    height: auto;
+  }
+  .mediaWindow {
+    height: 380px;
+  }
+  .cardExpanded {
+    flex: none !important;
+  }
+  .cardCompressed {
+    flex: none !important;
+    opacity: 1;
+  }
+  .hoverMetaSlate {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(to bottom, transparent 30%, rgba(17, 17, 17, 0.85) 100%);
+  }
+}

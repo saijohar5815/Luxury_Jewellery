@@ -1,0 +1,638 @@
+/* ==========================================================================
+   ANNOUNCEMENT BAR SYSTEM
+   ========================================================================== */
+.announcementBar {
+  background-color: #0A0A0A;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+  position: relative;
+  z-index: 1001;
+}
+
+.announcementTicker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #D4D4D4;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bullet {
+  color: #C8A96A;
+}
+
+/* ==========================================================================
+   GLOBAL NAVBAR CONFIGURATIONS
+   ========================================================================== */
+.navbarWrapper {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #FFFFFF;
+  z-index: 1000; /* Base Layer */
+}
+
+.scrolledNavbar {
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 80px;
+  box-shadow: 0 10px 30px rgba(163, 145, 122, 0.08);
+}
+
+.navInnerGrid {
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoAnchor {
+  text-decoration: none;
+}
+
+.logoAnchor h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #111111;
+  letter-spacing: 5px;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.logoSubtitle {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #C8A96A;
+  letter-spacing: 3px;
+  display: block;
+  margin-top: 2px;
+}
+
+.desktopNavLinksTrack {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  gap: 28px;
+}
+
+.desktopNavLinksTrack > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownTrigger,
+.desktopNavLinksTrack > li > a {
+  color: #111111;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.carat {
+  font-size: 8px;
+  margin-left: 3px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.hasMegaMenu:hover .carat {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   EXACT SPECIFICATION DROPDOWN CONTAINER ARCHITECTURE
+   ========================================================================== */
+.hasMegaMenu {
+  position: static;
+}
+
+.megaMenuDropdownWindow {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /* Add these lines to fix the "behind" effect */
+  z-index: 2000; 
+  background-color: #FAF8F5; /* Ensure a solid background so it isn't transparent */
+  pointer-events: none; /* Prevents ghost clicks when closed */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 3. Re-enable pointer events on hover */
+.hasMegaMenu:hover .megaMenuDropdownWindow {
+  opacity: 1;
+  pointer-events: auto; /* Dropdown becomes clickable only when visible */
+}
+
+/* 4. Fix potential transparency issue */
+.navInnerGrid {
+  position: relative;
+  z-index: 1001; /* Higher than the wrapper, but lower than the dropdown */
+  background: inherit;
+}
+
+.splitMegaMenuLayout {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR PANEL (FIXED AREA)
+   ========================================================================== */
+.megaMenuSidebar {
+  width: 320px;
+  min-width: 320px;
+  background-color: #FAF8F5;
+  border-right: 1px solid #E8E2DA;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Structured gap instead of space-between to avoid accidental stretching */
+  box-sizing: border-box;
+}
+
+.sidebarTabTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebarTabBtn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #666666;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: 400;
+}
+
+.sidebarTabBtn:hover,
+.activeTab {
+  background-color: #F4ECE7 !important;
+  color: #111111 !important;
+  font-weight: 500;
+}
+
+/* FIXED SIDEBAR CARD CONTAINER */
+.sidebarPromoCard {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border: 1px solid #E8E2DA;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: auto; /* Pushes the card nicely to the bottom of the sidebar area */
+}
+
+/* Fixed Height Ratio for Image Placement */
+.promoImageWrapper {
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+}
+
+.promoImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promoImgFallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #E8E2DA 0%, #F4ECE7 100%);
+}
+
+/* FIXED INTERNAL TEXT CARD PADDING */
+.promoCardContent {
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Clean line height spacing */
+  box-sizing: border-box;
+}
+
+.promoTag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #C8A96A;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.promoCardContent h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #111111;
+  margin: 0;
+  font-weight: 600;
+}
+
+.promoCardContent p {
+  font-size: 12px;
+  color: #666666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.promoActionLink {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.promoActionLink:hover {
+  color: #C8A96A;
+}
+
+/* ==========================================================================
+   RIGHT CONTENT REGION BASE CONTAINER
+   ========================================================================== */
+.megaMenuGridContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 40px 20px 40px;
+  box-sizing: border-box;
+  justify-content: flex-start; 
+}
+
+.tabContentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+/* ==========================================================================
+   CATEGORY SPECIFIC COMPACT CONTENT TAB
+   ========================================================================== */
+.categoryTabContainer {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.categoryLeftSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.categoryIconMatrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 24px;
+}
+
+.matrixColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.matrixItemRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #111111;
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.matrixItemRow:hover {
+  transform: translateX(5px);
+  color: #C8A96A;
+}
+
+.thumbnailCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 1px solid #E8E2DA;
+}
+
+.itemIconMini {
+  font-size: 18px;
+}
+
+.matrixItemLabel {
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* Feature image banner box */
+.categoryRightSquareBox {
+  width: 300px;
+  min-width: 300px;
+  height: 270px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #E8E2DA;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.categoryRightSquareBox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(163, 145, 122, 0.15);
+}
+
+.squareCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.squareCardTag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #C8A96A;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.squareCardOverlay h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #FFFFFF;
+  margin: 0 0 14px 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.squareCardBtn {
+  align-self: flex-start;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #C8A96A;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.squareCardBtn:hover {
+  color: #C8A96A;
+}
+
+/* ==========================================================================
+   4-COLUMN VISUAL CARDS GRID (Price / Occasion / Gender)
+   ========================================================================== */
+.fourColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+  align-items: start;
+}
+
+.priceCard, .occasionCard, .genderCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.priceCardImgWrapper, .occasionCardImgWrapper, .genderCardImgWrapper {
+  width: 100%;
+  height: 160px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border: 1px solid #E8E2DA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.cardPlaceholderImg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.priceCard:hover, .genderCard:hover {
+  transform: scale(1.04);
+}
+
+.priceCard:hover .priceCardImgWrapper {
+  box-shadow: 0 12px 25px rgba(163, 145, 122, 0.12);
+}
+
+.occasionCard:hover {
+  transform: translateY(-6px);
+}
+
+.occasionCardImgWrapper img {
+  transition: transform 0.3s ease;
+}
+
+.occasionCard:hover .occasionCardImgWrapper img {
+  transform: scale(1.05);
+}
+
+.cardTextTitle {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+}
+
+.cardTextTitleGold {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+  transition: color 0.3s ease;
+}
+
+.occasionCard:hover .cardTextTitleGold {
+  color: #C8A96A;
+}
+
+/* ==========================================================================
+   FOUR CHANNEL TRUST RIBBON BAR
+   ========================================================================== */
+.megaMenuTrustRibbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #E8E2DA;
+  padding: 16px 0;
+  height: 70px;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 35px; 
+  width: 100%;
+}
+
+.trustBadgeItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.trustIcon {
+  font-size: 20px;
+}
+
+.trustBadgeItem h5 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   UTILITY ICONS CONFIGURATION (Search, Wishlist, Account, Cart)
+   ========================================================================== */
+.utilityIconsTrack {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Consistent spacing with primary links */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: auto; /* Pushes utility icons to the far right */
+}
+
+.utilityIconItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.utilityIconItem:hover {
+  opacity: 0.7;
+}
+
+/* Specific styling for the cart count badge */
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #C8A96A;
+  color: #FFFFFF;
+  font-size: 9px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.iconImage {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.overlayModalContainer {
+  position: fixed;
+  top: 130px; /* Aligns below your 90px navbar + padding */
+  right: 4%;
+  width: 360px;
+  background-color: #FAF8F5;
+  border: 1px solid #E8E2DA;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  padding: 30px;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.closeOverlayBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

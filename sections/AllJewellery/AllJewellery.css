@@ -1,0 +1,129 @@
+.pageWrapper { background-color: #FAF8F5; padding-bottom: 80px; }
+
+.heroSection { text-align: center; padding: 80px 20px; }
+.heroSection h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; }
+
+/* STICKY FILTER */
+.filterBar { background: #fff; padding: 20px; border-bottom: 1px solid #ECE7E2; transition: all 0.3s ease; z-index: 100; }
+.sticky { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+
+.filterInner { max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; justify-content: center; align-items: center; }
+.filterBtn { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
+
+/* GRID & CARD */
+.productGrid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; padding: 0 20px; }
+
+.card { 
+  background: #FFFFFF; 
+  width: 300px; height: 430px; 
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #ECE7E2;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(200, 169, 106, 0.15); border-color: #C8A96A; }
+
+.imageBox { height: 280px; position: relative; overflow: hidden; }
+.imageBox img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
+.card:hover .imageBox img { transform: scale(1.05); }
+
+.hoverOverlay { 
+  position: absolute; inset: 0; background: rgba(0,0,0,0.1); 
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: 0.4s;
+}
+.card:hover .hoverOverlay { opacity: 1; }
+
+.cardInfo { padding: 15px; text-align: center; }
+.price { font-weight: 600; font-size: 14px; margin-top: 5px; }
+.viewDetailsBtn { margin-top: 10px; font-size: 11px; text-transform: uppercase; color: #C8A96A; border-bottom: 1px solid #C8A96A; }
+
+/* CTA BOTTOM */
+.ctaSection { text-align: center; margin-top: 80px; padding: 60px; border-top: 1px solid #ECE7E2; }
+.bookBtn { background: #111; color: #fff; padding: 15px 30px; margin-top: 20px; display: inline-flex; gap: 10px; }
+
+/* Container forces the grid to be responsive and fit content */
+.productGrid {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to flow to next line automatically */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card fit settings */
+.card {
+  width: 280px; /* Consistent width */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ECE7E2;
+  background: white;
+  transition: 0.3s;
+}
+
+/* Forces image to fit the container without distorting */
+.cardImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; 
+}
+
+.cardInfo {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Button interactive styling */
+.filterBtn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.filterBtn:hover {
+  background: #C8A96A;
+  color: white;
+  border-color: #C8A96A;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
+
+.modalContent {
+  background: #FAF8F5;
+  width: 90%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.modalGrid img { width: 100%; border-radius: 12px; }
+
+.closeModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111;
+}
+
+.modalPrice { font-size: 24px; font-weight: 600; margin: 10px 0; }
+.specs { border-top: 1px solid #E8E2DA; padding-top: 15px; margin-top: 15px; }

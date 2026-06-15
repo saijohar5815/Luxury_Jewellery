@@ -1,0 +1,589 @@
+.editorialContainer {
+  background: linear-gradient(135deg, #FAF7F0 0%, #F4EFE3 50%, #E9E0CE 100%);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 4% 140px 4%;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- Atmospheric Design Layers --- */
+.shimmerAmbientLens {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(238, 222, 191, 0.5) 0%, rgba(250, 247, 240, 0) 75%);
+  filter: blur(130px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.editorialLinenTexture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- High-End Magazine Headings --- */
+.magazineHeader {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 90px auto;
+}
+
+.headerMetaRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #8D743D;
+  font-weight: 700;
+}
+
+.mastheadDivider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(141,116,61,0.3) 50%, transparent 100%);
+  margin: 15px 0 35px 0;
+}
+
+.editorialCategorySub {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #2E2A22;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.magazineMainTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: #1E1A13;
+  margin: 0 0 25px 0;
+  letter-spacing: -1px;
+}
+
+.magazineIntroParagraph {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #5F594F;
+}
+
+/* --- 1. Asymmetrical Cards Layout --- */
+.editorialGridSection {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1350px;
+  margin: 0 auto 120px auto;
+}
+
+.magazineEditorialCard {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.asymWideCard {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cardImageCanvas {
+  width: 100%;
+  height: 280px;
+  background: #EFECE3;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(141, 116, 61, 0.08);
+}
+
+.asymWideCard .cardImageCanvas {
+  width: 50%;
+  height: 420px;
+  border-bottom: none;
+  border-right: 1px solid rgba(141, 116, 61, 0.08);
+}
+
+.editorialCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(10%) contrast(98%) brightness(96%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.asymWideCard .cardContentBody {
+  width: 50%;
+  padding: 50px;
+}
+
+.goldShimmerOverlayTrack {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.cardContentBody {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardSuperTag { font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px; color: #8D743D; font-weight: 700; margin-bottom: 12px; display: block; }
+.cardHeadingTitle { font-family: 'Playfair Display', serif; font-size: 26px; color: #1E1A13; margin: 0 0 14px 0; }
+.cardParagraphDesc { font-size: 14px; line-height: 1.6; color: #5F594F; margin: 0 0 20px 0; }
+
+.cardCustomBulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.cardCustomBulletList li { font-size: 12.5px; font-weight: 600; color: #2E2A22; }
+
+.magazineReadMoreLink {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #1E1A13;
+  font-weight: 700;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.animArrow { transition: transform 0.3s ease; }
+
+/* Luxury Card Hover Animations */
+.magazineEditorialCard:hover {
+  background: #FFFFFF;
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(141, 116, 61, 0.06);
+  border-color: rgba(141, 116, 61, 0.4);
+}
+.magazineEditorialCard:hover .editorialCardImage { transform: scale(1.06); filter: sepia(0%) contrast(102%) brightness(100%); }
+.magazineEditorialCard:hover .goldShimmerOverlayTrack { transform: translateX(100%); }
+.magazineEditorialCard:hover .animArrow { transform: translateX(6px); }
+
+/* --- Sub-Section Components --- */
+.sectionMiniLabel { font-size: 10px; text-transform: uppercase; letter-spacing: 4px; color: #8D743D; font-weight: 800; display: block; margin-bottom: 12px; text-align: center; }
+.sectionMiddleTitle { font-family: 'Playfair Display', serif; font-size: 38px; color: #1E1A13; margin: 0 0 20px 0; text-align: center; font-weight: 400; }
+.sectionParagraphCenter { font-size: 14.5px; color: #5F594F; text-align: center; max-width: 600px; margin: 0 auto 50px auto; }
+
+.splitLayoutEngine {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- 2. Diamond Interactive Wheel --- */
+.interactiveWheelSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; background: rgba(255,255,255,0.25); padding: 60px; border-radius: 32px; border: 1px solid rgba(255,255,255,0.5); }
+.wheelVisualColumn { display: flex; justify-content: center; }
+
+.kineticWheelTrack {
+  width: 320px;
+  height: 320px;
+  border: 1px dashed rgba(141, 116, 61, 0.3);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerCoreStoneBadge {
+  width: 100px;
+  height: 100px;
+  background: #1E1A13;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.wheelQuadrantPill {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2E2A22;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pill-Cut { top: 10px; }
+.pill-Clarity { right: 10px; }
+.pill-Carat { bottom: 10px; }
+.pill-Color { left: 10px; }
+
+.wheelPillActive, .wheelQuadrantPill:hover {
+  background: #8D743D;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(141, 116, 61, 0.25);
+  transform: scale(1.08);
+}
+
+.wheelContentTextColumn .sectionMiniLabel { text-align: left; }
+.wheelContentTextColumn .sectionMiddleTitle { text-align: left; }
+
+.dynamicWheelArticleBox {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 30px;
+  border-left: 3px solid #8D743D;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.015);
+  min-height: 140px;
+}
+.dynamicWheelArticleBox h4 { font-size: 18px; color: #1E1A13; margin: 0 0 10px 0; }
+.dynamicWheelArticleBox p { font-size: 14px; line-height: 1.6; color: #5F594F; margin: 0; }
+
+/* --- 3. Metallurgy Matrix: Gold Guide --- */
+.metallurgyComparativeSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; }
+.puritySelectionTrackRow { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
+
+.karatToggleSelectorPill {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5F594F;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.karatPillActive, .karatToggleSelectorPill:hover {
+  background: #1E1A13;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.goldComparisonGlassDashboard {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  padding: 45px;
+  border-radius: 28px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.dashboardSplitHalf { width: 45%; }
+.dashboardSplitHalfText { width: 55%; }
+
+.alloyScaleVisualization {
+  width: 100%;
+  height: 14px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.purityGoldAlloyFill {
+  height: 100%;
+  background: linear-gradient(90deg, #D4AF37 0%, #F3E5AB 50%, #AA7C11 100%);
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.visualBarCaptionLabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #8D8475; font-weight: 600; }
+
+.dashboardSplitHalfText h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: #1E1A13; margin: 0 0 12px 0; }
+.dashboardSplitHalfText p { font-size: 14.5px; line-height: 1.65; color: #5F594F; margin: 0; }
+
+/* --- 4. Ring Size Calibration Suite --- */
+.ringSizerCalibrationSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; background: rgba(255,255,255,0.2); border-radius: 32px; padding: 60px; border: 1px solid rgba(255,255,255,0.4); }
+.sizerCalculatorCard { width: 100%; }
+.sizerCalculatorCard h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: #1E1A13; margin: 0 0 30px 0; }
+
+.calculatorInterfaceFormStack { display: flex; flex-direction: column; gap: 25px; margin-bottom: 35px; }
+.inputFormGroupLabel { display: flex; flex-direction: column; gap: 10px; }
+.inputFormGroupLabel label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #2E2A22; font-weight: 700; }
+
+.premiumRangeSliderBar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(141,116,61,0.15);
+  border-radius: 2px;
+  outline: none;
+}
+.premiumRangeSliderBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1E1A13;
+  cursor: pointer;
+  border: 2px solid #FAF7F0;
+}
+
+.inlineRegionSelectorToggleDeck { display: flex; gap: 10px; }
+.regionMiniPillBtn {
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #5F594F;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.regionPillActive, .regionMiniPillBtn:hover { background: #8D743D; color: #FFFFFF; }
+
+.calculatedResultDisplayDashboard { background: #FFFFFF; padding: 25px; border-radius: 16px; box-shadow: 0 15px 30px rgba(141,116,61,0.03); border: 1px solid rgba(141,116,61,0.1); }
+.calcSubLabelTitle { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #8D743D; font-weight: 700; display: block; margin-bottom: 5px; }
+.giantCalculatedSizeNumber { font-family: 'Playfair Display', serif; font-size: 40px; color: #1E1A13; line-height: 1; }
+.sizeRegionSubLabel { font-size: 16px; font-family: sans-serif; font-weight: 600; color: #8D8475; }
+
+.sizerVisualRepresentationAperture { display: flex; align-items: center; justify-content: center; height: 300px; background: rgba(255,255,255,0.3); border-radius: 20px; }
+.dynamicSizerCalibratedCircleVector {
+  border: 2px solid #8D743D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 20px 45px rgba(141,116,61,0.05);
+  transition: width 0.2s ease, height 0.2s ease;
+  min-width: 140px;
+  min-height: 140px;
+}
+.internalDiameterLineMeasure { width: 100%; height: 1px; border-top: 1px dashed #8D743D; position: relative; text-align: center; }
+.internalDiameterLineMeasure span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; font-family: monospace; background: #FFFFFF; padding: 2px 6px; border-radius: 4px; color: #1E1A13; font-weight: 700; }
+
+/* --- 5. Maintenance Roadmap Timeline --- */
+.careAssetRoadmapSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; }
+.horizontalRoadmapTimelineTrack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+
+.timelineHorizontalStepCard { background: #FFFFFF; padding: 30px; border-radius: 20px; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.01); border: 1px solid rgba(0,0,0,0.02); }
+.stepCounterBadgeHeader { font-family: monospace; font-size: 12px; color: #8D743D; font-weight: 700; background: rgba(141,116,61,0.08); padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 15px; }
+.timelineHorizontalStepCard h4 { font-size: 17px; color: #1E1A13; margin: 0 0 10px 0; }
+.timelineHorizontalStepCard p { font-size: 13px; line-height: 1.55; color: #5F594F; margin: 0; }
+
+.connectingLineVectorWire { position: absolute; top: 40px; right: -25px; width: 20px; height: 1px; border-top: 1px dashed rgba(141,116,61,0.3); z-index: 3; }
+
+/* --- 6. Ensemble Vignettes: Styling Guide (FIXED) --- */
+.editorialStylingCurationSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; }
+.styleSelectorToggleTrackPills { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+
+.stylingTabLinkBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #5F594F;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.stylingTabActive, .stylingTabLinkBtn:hover { color: #1E1A13; border-color: #8D743D; }
+
+.stylingDisplayPremiumShowcaseCanvas {
+  background: #FFFFFF;
+  border-radius: 28px;
+  overflow: hidden;
+  height: 380px;
+  display: flex;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.02);
+}
+
+.abstractGraphicAestheticCanvasBg {
+  width: 45%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #EFECE3;
+}
+
+.stylingVignetteImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(8%) contrast(98%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stylingDisplayPremiumShowcaseCanvas:hover .stylingVignetteImage {
+  transform: scale(1.04);
+}
+
+.vignetteOverlayTint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26, 23, 17, 0.05), transparent);
+  pointer-events: none;
+}
+
+.stylingNarrativeContextPanelBox { width: 55%; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+.stylingNarrativeContextPanelBox h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: #1E1A13; margin: 0 0 15px 0; }
+.stylingDecorativeDottedLineDivider { height: 1px; border-bottom: 1px dashed rgba(0,0,0,0.08); margin-bottom: 25px; }
+.stylingNarrativeContextPanelBox p { font-size: 15px; line-height: 1.7; color: #5F594F; margin: 0; }
+
+/* --- 7. Acquisition Process Chronology --- */
+.buyingGuideChronologySection { position: relative; z-index: 2; max-width: 900px; margin: 0 auto 120px auto; }
+.verticalChronoTimelineTrackContainer { display: flex; flex-direction: column; margin-top: 50px; }
+
+.chronoVerticalRowNodeElement { display: flex; gap: 30px; }
+.chronoLeftCounterColumnField { width: 120px; text-align: right; padding-top: 4px; }
+.chronoIndexNumber { font-family: monospace; font-size: 11px; font-weight: 700; color: #8D743D; letter-spacing: 1px; }
+
+.chronoCenterNodeBeadDotTrack { display: flex; flex-direction: column; align-items: center; position: relative; }
+.beadCircleCoreDot { width: 10px; height: 10px; background: #1E1A13; border-radius: 50%; border: 2px solid #FAF7F0; z-index: 2; }
+.beadConnectingLineDownwardWire { width: 1px; height: 100%; background: rgba(0,0,0,0.08); position: absolute; top: 10px; z-index: 1; }
+
+.chronoRightContentDetailTextBox { padding-bottom: 45px; width: 100%; }
+.chronoRightContentDetailTextBox h4 { font-size: 18px; color: #1E1A13; margin: 0 0 6px 0; }
+.chronoRightContentDetailTextBox p { font-size: 14px; line-height: 1.5; color: #5F594F; margin: 0; }
+
+/* --- 8. Elite Credentials Board --- */
+.authorityCredentialsCertificatesSection { position: relative; z-index: 2; max-width: 1350px; margin: 0 auto 120px auto; }
+.certificationAuthorityFlexGridDeck { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 50px; }
+
+.authorityVerificationGlassCard {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+.authorityVerificationGlassCard:hover { background: #FFFFFF; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(141,116,61,0.04); }
+
+.authorityIconBadgeEmblem { font-size: 24px; margin-bottom: 15px; }
+.authorityVerificationGlassCard h3 { font-size: 18px; color: #1E1A13; margin: 0 0 4px 0; }
+.issuingAuthoritySubTextLabel { font-size: 11px; color: #8D743D; font-weight: 600; display: block; }
+.certCardDividerLine { height: 1px; background: rgba(0,0,0,0.05); margin: 15px 0; }
+.authorityVerificationGlassCard p { font-size: 13px; line-height: 1.5; color: #5F594F; margin: 0; }
+
+/* --- 9. Recommendation Filter Matrix --- */
+.recommendationEngineInteractiveSection { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+.glassmorphicInteractiveQuizControlPanelDeck {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 32px;
+  padding: 50px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.03);
+}
+
+.quizPanelHeaderMetaText { text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 25px; margin-bottom: 40px; }
+.panelTitleCapsLabel { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #8D743D; font-weight: 800; }
+.quizPanelHeaderMetaText h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: #1E1A13; margin: 10px 0 0 0; font-weight: 400; }
+
+.quizConfigurationOptionsWrapperStack { display: flex; flex-direction: column; gap: 30px; margin-bottom: 45px; }
+.quizStepBlockControlRow { display: flex; flex-direction: column; gap: 12px; }
+.quizStepBlockControlRow span { font-size: 13px; font-weight: 700; color: #1E1A13; }
+.quizPillSelectionToggleRowTrack { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.quizSelectionOptionPillButton {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  color: #5F594F;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.quizSelectionOptionPillButton:hover { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); }
+
+.quizPillActiveState {
+  background: #1E1A13 !important;
+  color: #FFFFFF !important;
+  border-color: #1E1A13 !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.quizAutomatedOutputRecommendationBoxResult {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(141,116,61,0.15);
+  box-shadow: 0 20px 45px rgba(141,116,61,0.03);
+}
+.outputSystemTagLabel { font-size: 9px; font-family: monospace; letter-spacing: 2px; color: #8D743D; font-weight: 700; display: block; margin-bottom: 8px; }
+.quizAutomatedOutputRecommendationBoxResult h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: #1E1A13; margin: 0 0 15px 0; }
+
+.outputMatchingAttributesRowTags { display: flex; gap: 8px; margin-bottom: 20px; }
+.outputMatchingAttributesRowTags span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(141,116,61,0.08); color: #8D743D; padding: 4px 10px; border-radius: 4px; }
+.outputGeneratedNarrativeParagraph { font-size: 14.5px; line-height: 1.65; color: #5F594F; margin: 0 0 30px 0; }
+
+.lockAcquisitionConsultationBtnTrigger {
+  background: #1E1A13;
+  color: #FFFFFF;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lockAcquisitionConsultationBtnTrigger:hover {
+  background: #8D743D;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(141,116,61,0.2);
+}
+.btnArrowIconVector { transition: transform 0.3s ease; }
+.lockAcquisitionConsultationBtnTrigger:hover .btnArrowIconVector { transform: translateX(5px); }
+
+/* --- Responsive Media Layout Breakpoints --- */
+@media (max-width: 1100px) {
+  .editorialGridSection, .splitLayoutEngine, .certificationAuthorityFlexGridDeck { grid-template-columns: 1fr; gap: 40px; }
+  .asymWideCard { flex-direction: column; }
+  .asymWideCard .cardImageCanvas, .asymWideCard .cardContentBody, .dashboardSplitHalf, .dashboardSplitHalfText, .abstractGraphicAestheticCanvasBg, .stylingNarrativeContextPanelBox { width: 100%; }
+  .horizontalRoadmapTimelineTrack { grid-template-columns: repeat(2, 1fr); }
+  .connectingLineVectorWire { display: none; }
+  .goldComparisonGlassDashboard { flex-direction: column; padding: 30px; }
+  .stylingDisplayPremiumShowcaseCanvas { flex-direction: column; height: auto; }
+  .magazineMainTitle { font-size: 44px; }
+}
+@media (max-width: 600px) {
+  .horizontalRoadmapTimelineTrack { grid-template-columns: 1fr; }
+}

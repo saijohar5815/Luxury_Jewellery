@@ -1,0 +1,961 @@
+/* Core Styling Variables & System Overwrite Limits */
+.bridalStudioCanvas {
+  --bg-alabaster: #F8F4EF;
+  --gold-sovereign: #C8A96A;
+  --rose-gold-tint: #D8B4A0;
+  --burgundy-deep: #5A1F1F;
+  --onyx-ink: #111111;
+  --white-matte: #FFFFFF;
+  
+  /* Fallback if CSS variable manipulation injection experiences pipeline disruptions */
+  --studio-accent: var(--burgundy-deep);
+
+  background-color: var(--bg-alabaster);
+  color: var(--onyx-ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'Didot', 'Bodoni MT', serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: background-color 0.8s ease;
+}
+
+/* GLOBAL TEXT STRUCTURE SYSTEM HELPERS */
+.sectionHeaderCentered {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 5rem auto;
+}
+
+.sectionHeaderCentered h2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.sectionHeaderCentered p {
+  color: #666666;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.goldLabel {
+  color: var(--gold-sovereign);
+  font-size: 0.75rem;
+  letter-spacing: 0.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* SCREEN 1: HERO CONTAINER CONFIGURATIONS */
+.heroSection {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #1a1512;
+}
+
+.videoBackgroundSimulation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #2e241f 0%, #111111 100%);
+  z-index: 1;
+}
+
+.darkAestheticMutingShield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.4);
+}
+
+.driftingFlowerPetalsOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(200, 169, 106, 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+  animation: backgroundParallaxDrift 20s linear infinite;
+}
+
+@keyframes backgroundParallaxDrift {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 40px 80px; }
+}
+
+.heroContentFrame {
+  position: relative;
+  z-index: 5;
+  color: var(--white-matte);
+  max-width: 850px;
+  padding: 0 2rem;
+}
+
+.heroSubText {
+  color: var(--gold-sovereign);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.heroMainTitle {
+  font-size: 4.5rem;
+  font-weight: 200;
+  letter-spacing: 0.25rem;
+  margin: 0 0 2rem 0;
+  line-height: 1.1;
+}
+
+.heroEditorialLine {
+  font-size: 1.25rem;
+  color: #e5dec9;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+}
+
+.heroCtaGoldButton {
+  background-color: transparent;
+  border: 1px solid var(--gold-sovereign);
+  color: var(--white-matte);
+  padding: 1.2rem 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroCtaGoldButton:hover {
+  background-color: var(--gold-sovereign);
+  color: var(--onyx-ink);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.scrollIndicatorPulse {
+  position: absolute;
+  bottom: 2.5rem;
+  color: var(--gold-sovereign);
+  font-size: 1.5rem;
+  z-index: 5;
+  animation: arrowPulseVertical 2s infinite ease-in-out;
+}
+
+@keyframes arrowPulseVertical {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* SCREEN 2: DYNAMIC IDENTITY WEDDING STYLE CHOOSER */
+.styleSwitcherSection {
+  padding: 8rem 6%;
+  background-color: var(--white-matte);
+}
+
+.styleSelectorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.styleSelectorCard {
+  background-color: var(--bg-alabaster);
+  border: 1px solid rgba(17,17,17,0.03);
+  padding: 3rem 2rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.styleSelectorCard h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+
+.styleSelectorCard p {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.activeBorderAccentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--gold-sovereign);
+  transition: width 0.4s ease;
+}
+
+.styleSelectorCard:hover {
+  transform: translateY(-5px);
+  background-color: var(--white-matte);
+  box-shadow: 0 15px 35px rgba(17,17,17,0.04);
+}
+
+.styleCardActive {
+  background-color: var(--white-matte);
+  border-color: var(--gold-sovereign);
+  box-shadow: 0 20px 40px rgba(17,17,17,0.06);
+}
+
+.styleCardActive .activeBorderAccentLine {
+  width: 100%;
+  background-color: var(--studio-accent);
+}
+
+/* SCREEN 3: MASONRY MOOD BOARD DEFINITIONS */
+.moodBoardSection {
+  padding: 6rem 6%;
+}
+
+.moodMasonryLayout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1.5rem;
+}
+
+.masonryBlock {
+  background-color: var(--white-matte);
+  overflow: hidden;
+  border: 1px solid rgba(17,17,17,0.02);
+}
+
+.blockLarge { grid-column: span 2; grid-row: span 2; }
+.blockTall { grid-row: span 2; }
+.blockSquare { grid-column: span 1; }
+.blockWide { grid-column: span 2; }
+
+.moodPlaceholderImage {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e3ded5 0%, #cac3b5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.moodInternalTag {
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  color: rgba(17,17,17,0.6);
+  text-transform: uppercase;
+}
+
+.masonryBlock:hover .moodPlaceholderImage {
+  transform: scale(1.04);
+}
+
+/* SCREEN 4: COMPLETE SUITE INTEGRATED LOOK MODULE */
+.completeLookSection {
+  padding: 8rem 6%;
+  background-color: var(--white-matte);
+}
+
+.completeLookGridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  max-width: 1150px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.lookVisualShowcaseSide {
+  height: 580px;
+  background: radial-gradient(circle, #fcfbfa 0%, #e0d8cc 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(17,17,17,0.03);
+}
+
+.lookCouturePlateBackground {
+  width: 250px;
+  height: 400px;
+  border: 1px solid rgba(198, 169, 106, 0.25);
+  position: relative;
+}
+
+.goldGlintSparkleOne, .goldGlintSparkleTwo {
+  position: absolute;
+  color: var(--gold-sovereign);
+  font-size: 1.2rem;
+}
+.goldGlintSparkleOne { top: 15%; right: 15%; }
+.goldGlintSparkleTwo { bottom: 25%; left: 10%; }
+
+.lookManifestDetailsSide {
+  padding-right: 2rem;
+}
+
+.lookTitleHeading {
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin: 0.8rem 0 2rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.packageSubtitleText {
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.packageElementsChecklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3.5rem 0;
+}
+
+.packageElementsChecklist li {
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(17,17,17,0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.packagePriceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-alabaster);
+  padding: 2rem;
+  border-left: 4px solid var(--studio-accent);
+}
+
+.priceLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  color: #777777;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.priceValueString {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.packageAcquireButton {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+  border: none;
+  padding: 1.1rem 2.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.packageAcquireButton:hover {
+  background-color: var(--gold-sovereign);
+  color: var(--onyx-ink);
+}
+
+/* SCREEN 5: CEREMONIAL TIMELINE TRACKER */
+.timelineSection {
+  padding: 8rem 6%;
+}
+
+.timelineNavigationTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background-color: rgba(17,17,17,0.06);
+  margin-bottom: 4rem;
+}
+
+.timelineNodeButton {
+  background-color: var(--white-matte);
+  border: none;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nodeStepIndicator {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-sovereign);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.nodeStageLabel {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.activeTimelineNode {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+}
+
+.timelineDynamicDisplayCard {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background-color: var(--white-matte);
+  border: 1px solid rgba(17,17,17,0.03);
+}
+
+.timelineDisplayVisualStage {
+  background-color: #1a1a1a;
+  min-height: 320px;
+  position: relative;
+}
+
+.technicalBlueprintBlueprintGrid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.timelineDisplayContentStage {
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timelineDisplayContentStage h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0.5rem 0 2rem 0;
+}
+
+.specificationsTable {
+  margin-bottom: 2.5rem;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(17,17,17,0.06);
+  font-size: 0.95rem;
+}
+
+.timelineActionLinkButton {
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  padding: 0;
+  color: var(--onyx-ink);
+  border-bottom: 1px solid var(--gold-sovereign);
+  width: fit-content;
+  padding-bottom: 0.3rem;
+}
+
+/* SCREEN 6: EDITORIAL LINEAGE PORTFOLIO ARCHIVES */
+.editorialCollectionsSection {
+  padding: 6rem 6%;
+}
+
+.editorialCollectionsColumnStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.editorialRowCard {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background-color: var(--white-matte);
+  border: 1px solid rgba(17,17,17,0.02);
+  transition: border-color 0.4s ease;
+}
+
+.editorialRowMiniStage {
+  background-color: #26211e;
+  height: 220px;
+}
+
+.editorialRowContentSide {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.editorialRowContentSide h3 {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin: 0 0 0.8rem 0;
+}
+
+.editorialRowContentSide p {
+  color: #666666;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.editorialRowInlineButton {
+  background: transparent;
+  border: none;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  padding: 0;
+  color: var(--gold-sovereign);
+}
+
+.editorialRowCard:hover {
+  border-color: var(--gold-sovereign);
+}
+
+/* SCREEN 7: VIRTUAL BRIDE'S DRESSING TABLE */
+.dressingTableSection {
+  padding: 8rem 6%;
+  background-color: var(--white-matte);
+}
+
+.dressingTableInteractiveCanvas {
+  max-width: 1000px;
+  margin: 4rem auto 0 auto;
+}
+
+.dressingTableLayoutPlate {
+  background: radial-gradient(circle at center, #ece6dc 0%, #dcd3c4 100%);
+  height: 380px;
+  border: 1px dashed rgba(17,17,17,0.15);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.tableInteractiveHotspot {
+  background-color: var(--white-matte);
+  border: 1px solid rgba(17,17,17,0.08);
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tableInteractiveHotspot:hover {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+  transform: scale(1.05);
+}
+
+.dressingTableDrawerOverlayDetailPanel {
+  background-color: var(--bg-alabaster);
+  padding: 2.5rem;
+  margin-top: 1.5rem;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-top: 2px solid var(--studio-accent);
+}
+
+.neutralPromptText {
+  color: #777777;
+  font-style: italic;
+}
+
+/* SCREEN 8: BRIDAL STRATEGIC ASSISTANT ARTIFICIAL PLANNER */
+.plannerSection {
+  padding: 6rem 6%;
+}
+
+.plannerCardInnerFrame {
+  background-color: var(--white-matte);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem;
+  border: 1px solid rgba(17,17,17,0.02);
+}
+
+.plannerInteractiveControls {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.plannerControlLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.budgetTabsTrack {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.budgetTabButton {
+  background-color: var(--bg-alabaster);
+  border: 1px solid transparent;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeBudgetTab {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+  border-color: var(--onyx-ink);
+}
+
+.plannerDynamicOutputShield {
+  background-color: var(--bg-alabaster);
+  padding: 3rem;
+  border-left: 3px solid var(--gold-sovereign);
+}
+
+.plannerDynamicOutputShield h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.plannerDynamicOutputShield p {
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.plannerDynamicActionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.plannerInternalCta {
+  background: transparent;
+  border: 1px solid var(--onyx-ink);
+  padding: 0.8rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.plannerInternalCta:hover {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+}
+
+/* SCREEN 9: PRIVATE APPOINTMENT RESORT LOCK BOX */
+.bookingSection {
+  padding: 8rem 6%;
+  background-color: var(--white-matte);
+}
+
+.bookingCardLayoutContainer {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--bg-alabaster);
+  border: 1px solid rgba(17,17,17,0.02);
+}
+
+.bookingLeftPromoPanel {
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bookingLeftPromoPanel h3 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.bookingLeftPromoPanel p {
+  color: #bfa79c;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.bookingRightFormPanel {
+  padding: 4.5rem;
+}
+
+.bookingFormElement {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formFieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.formFieldGroup label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  color: #555555;
+}
+
+.luxuryFormInput {
+  background-color: var(--white-matte);
+  border: 1px solid rgba(17,17,17,0.1);
+  padding: 1.1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.luxuryFormInput:focus {
+  border-color: var(--gold-sovereign);
+}
+
+/* SCREEN 10: REAL BRIDES MAGAZINE JOURNAL SHEET */
+.realBridesSection {
+  padding: 8rem 6%;
+}
+
+.realBridesMagazineGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.magazineBrideCard {
+  background-color: var(--white-matte);
+  border: 1px solid rgba(17,17,17,0.02);
+}
+
+.magazineBrideImageStage {
+  height: 420px;
+  background-color: #302a27;
+  position: relative;
+}
+
+.magazinePhotoCreditIndicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.65rem;
+  letter-spacing: 0.15rem;
+}
+
+.magazineBrideContentMeta {
+  padding: 2.5rem;
+}
+
+.magazineBrideContentMeta h4 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 0.3rem 0;
+}
+
+.brideVenueSublabel {
+  font-size: 0.75rem;
+  color: var(--gold-sovereign);
+  letter-spacing: 0.05rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.magazineBrideContentMeta p {
+  color: #555555;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.readStoryMagazineButton {
+  background: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+  color: var(--onyx-ink);
+  cursor: pointer;
+  padding: 0;
+}
+
+/* SCREEN 11: CORE SERVICES FEATURE MATRIX */
+.servicesSection {
+  padding: 6rem 6%;
+  background-color: var(--white-matte);
+}
+
+.servicesQuadMatrixGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.serviceLuxuryFeatureCard {
+  background-color: var(--bg-alabaster);
+  padding: 3.5rem;
+  position: relative;
+}
+
+.serviceFeatureIndicatorStar {
+  color: var(--gold-sovereign);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.serviceLuxuryFeatureCard h3 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+
+.serviceLuxuryFeatureCard p {
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* SCREEN 12: STORIES REASSURANCE BAND */
+.loveStoriesMinimalSection {
+  padding: 6rem 6%;
+}
+
+.minimalStoriesTrack {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.starCluster {
+  color: var(--gold-sovereign);
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.minimalTestimonialCard p {
+  font-size: 1.35rem;
+  line-height: 1.7;
+  color: #333333;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+}
+
+.minimalTestimonialCard cite {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  color: #777777;
+}
+
+/* SCREEN 13: CRITICAL BRAND CLOSING APPARATUS */
+.finalCtaSectionSection {
+  padding: 8rem 6%;
+  background-color: var(--onyx-ink);
+  color: var(--white-matte);
+  text-align: center;
+}
+
+.finalCtaPolishedShieldBacking {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.finalCtaPolishedShieldBacking h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.finalCtaPolishedShieldBacking p {
+  color: #a5a095;
+  max-width: 500px;
+  margin: 0 auto 3.5rem auto;
+  line-height: 1.7;
+}
+
+.ultimateStudioCtaActionExecuteButton {
+  background-color: transparent;
+  border: 1px solid var(--white-matte);
+  color: var(--white-matte);
+  padding: 1.2rem 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ultimateStudioCtaActionExecuteButton:hover {
+  background-color: var(--white-matte);
+  color: var(--onyx-ink);
+}
+
+/* UNIFIED RESPONSIVE DOCK SYSTEM */
+@media (max-width: 1024px) {
+  .styleSelectorGrid, .moodMasonryLayout, .timelineNavigationTrack, .realBridesMagazineGrid {
+    grid-template-columns: 1fr;
+  }
+  .completeLookGridContainer, .timelineDynamicDisplayCard, .editorialRowCard, .bookingCardLayoutContainer, .servicesQuadMatrixGrid {
+    grid-template-columns: 1fr;
+  }
+  .editorialRowMiniStage { height: 140px; }
+  .lookVisualShowcaseSide { height: 380px; }
+  .heroMainTitle { font-size: 2.8rem; }
+  .sectionHeaderCentered h2 { font-size: 2rem; }
+  .plannerCardInnerFrame, .bookingLeftPromoPanel, .bookingRightFormPanel, .timelineDisplayContentStage {
+    padding: 2.5rem 1.5rem;
+  }
+}

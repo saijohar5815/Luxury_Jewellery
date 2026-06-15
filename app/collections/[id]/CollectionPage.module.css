@@ -1,0 +1,331 @@
+.pageWrapper {
+  background-color: #FAF8F5; /* Velvet Silk Wall Contrast Background */
+  min-height: 100vh;
+  width: 100%;
+  color: #1A1A1A;
+}
+
+.topHeader {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 24px 0;
+  background-color: #ffffff;
+}
+
+.headerContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brandLogo {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.backAnchor {
+  color: #888888;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.backAnchor:hover {
+  color: #B59410;
+}
+
+/* --- Curated Header Frame --- */
+.heroNarrative {
+  padding: 90px 0 70px 0;
+  background-color: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.heroContainer {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.goldSubtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #B59410;
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.mainTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0 0 24px 0;
+  letter-spacing: 1px;
+  color: #1A1A1A;
+}
+
+.descriptionText {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #666666;
+  margin-bottom: 35px;
+}
+
+.tickerFrame {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FAF8F5;
+  padding: 10px 22px;
+  border-radius: 40px;
+  border: 1px solid rgba(181, 148, 16, 0.12);
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  background-color: #B59410;
+  border-radius: 50%;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.tickerText {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 500;
+}
+
+/* --- Chapter Exhibition Controls --- */
+.gallerySection {
+  padding: 70px 0 140px 0;
+}
+
+.galleryContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px rgba(27, 26, 24, 0.03);
+}
+
+.filterPill {
+  background: none;
+  border: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666666;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 40px;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  font-weight: 500;
+}
+
+.filterPill:hover {
+  color: #1A1A1A;
+  background-color: #FAF8F5;
+}
+
+.filterActive {
+  background-color: #1A1A1A !important;
+  color: #ffffff !important;
+}
+
+/* --- Luxury Column Grid Symmetry --- */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+}
+
+.productCard {
+  background: #ffffff;
+  border-radius: 0; /* Box sharp edges scream architectural haute luxury */
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(27, 26, 24, 0.02);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageBox {
+  position: relative;
+  height: 460px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #F6F4F0;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Sleek dark satin gradient mask on hover */
+.cardHoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 35px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hoverContentInside {
+  width: 100%;
+  transform: translateY(20px);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tagDrawer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.materialTag {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.viewActionBtn {
+  width: 100%;
+  background-color: #ffffff;
+  border: none;
+  color: #1A1A1A;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  padding: 16px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.viewActionBtn:hover {
+  background-color: #B59410;
+  color: #ffffff;
+}
+
+/* --- Card Details Section --- */
+.productMeta {
+  padding: 28px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.01);
+}
+
+.skuLabel {
+  font-size: 9px;
+  color: #AAAAAA;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.itemName {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 14px 0;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.itemPrice {
+  font-size: 14px;
+  color: #B59410;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* --- Hover States --- */
+.productCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(27, 26, 24, 0.06);
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.06);
+}
+
+.productCard:hover .cardHoverOverlay {
+  opacity: 1;
+}
+
+.productCard:hover .hoverContentInside {
+  transform: translateY(0);
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.6; }
+}
+
+/* --- Structural Fluid Adaptation --- */
+@media (max-width: 1200px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+  .mainTitle {
+    font-size: 36px;
+  }
+  .imageBox {
+    height: 400px;
+  }
+  .filterBar {
+    border-radius: 20px;
+    padding: 10px;
+  }
+}

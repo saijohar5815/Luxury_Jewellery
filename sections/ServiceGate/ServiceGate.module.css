@@ -1,0 +1,201 @@
+.wrapper {
+  background-color: #EBF0EC; /* New Distinct Luxury Palette: Jade Sage Silk Canvas */
+  padding: 130px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- Editorial Header Formatting --- */
+.headerBlock {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.accentBadge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #8A721C; /* Muted Champagne Accent */
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #1F2622;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+/* --- Interlocking Structural Asymmetric Masonry Architecture --- */
+.louvreGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 50px 35px;
+  width: 100%;
+}
+
+.gateCard {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Perfect alignment grid layout mapping to image_78fb1c.jpg structural hierarchy */
+.positionIndex0 { grid-column: span 5; }
+.positionIndex1 { grid-column: span 7; margin-top: 40px; }
+.positionIndex2 { grid-column: span 4; }
+.positionIndex3 { grid-column: span 4; }
+.positionIndex4 { grid-column: span 4; }
+.positionIndex5 { grid-column: span 12; }
+
+/* --- Interaction Focus States --- */
+.activeCard {
+  transform: translateY(-4px);
+}
+
+.dimmedCard {
+  opacity: 0.35;
+  filter: blur(0.5px);
+}
+
+/* --- Media Lens Components --- */
+.mediaFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #DFE5E1;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(31, 38, 34, 0.04);
+}
+
+/* Keeps the horizontal full-screen panoramic proportions for card 6 intact */
+.positionIndex5 .mediaFrame {
+  aspect-ratio: 21 / 7;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.matteOvercast {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 38, 34, 0.04);
+  transition: background-color 0.4s ease;
+  pointer-events: none;
+}
+
+.activeCard .matteOvercast {
+  background-color: transparent;
+}
+
+/* --- Modern High-End Shutter Border Animation --- */
+.shutterBoxBorder {
+  position: absolute;
+  inset: 0;
+  border: 0px solid #FFFFFF;
+  transition: border-width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.activeCard .shutterBoxBorder {
+  border-width: 12px; /* Fine internal matte framing box builds on hover */
+}
+
+/* --- Typography Content Stacking --- */
+.textStack {
+  margin-top: 22px;
+  padding: 0 2px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F2622;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.activeCard .cardTitle {
+  color: #8A721C;
+}
+
+/* --- Fluid Kinetic Slide Arrow --- */
+.arrowContainer {
+  overflow: hidden;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowIcon {
+  font-size: 16px;
+  color: #1F2622;
+  transform: translate3d(-20px, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+.activeCard .arrowIcon {
+  transform: translate3d(0, 0, 0);
+  color: #8A721C;
+}
+
+.cardSubtitle {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5C6660;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* --- Responsive Viewport Adjustments --- */
+@media (max-width: 1024px) {
+  .louvreGrid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  
+  .gateCard {
+    grid-column: span 1fr !important;
+    margin-top: 0 !important;
+  }
+
+  .positionIndex5 .mediaFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .dimmedCard {
+    opacity: 1;
+    filter: none;
+  }
+}

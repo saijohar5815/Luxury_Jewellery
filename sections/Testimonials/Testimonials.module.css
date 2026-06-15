@@ -1,0 +1,296 @@
+.wrapper {
+  background-color: #0B0B0B; /* Deep Noir Canvas Room */
+  padding: 140px 0;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(181, 148, 16, 0.15);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.sectionHeader {
+  margin-bottom: 90px;
+  text-align: left;
+}
+
+.goldSubtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #B59410;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.mainTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+/* --- Framework Alignment --- */
+.ledgerGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 100px;
+  align-items: center;
+}
+
+/* --- Left Column: Elegant Image Window Node --- */
+.galleryViewport {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7);
+  padding: 20px; /* Gives a fine internal layout mat border */
+}
+
+.imageFilmstripWindow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageFilmstripContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageSlide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.macroPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(110%);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Subtle continuous zoom effect on image focus */
+.galleryViewport:hover .macroPhoto {
+  transform: scale(1.06);
+}
+
+.photoVignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(11, 11, 11, 0.7) 100%),
+              linear-gradient(to right, transparent 80%, rgba(11, 11, 11, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* --- Tech-Luxe Informational Tags --- */
+.canvasFootnote {
+  position: absolute;
+  bottom: 40px;
+  left: 45px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  background-color: rgba(11, 11, 11, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pulsingDot {
+  width: 4px;
+  height: 4px;
+  background-color: #B59410;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #B59410;
+  animation: pulseOpacity 1.8s ease-in-out infinite alternate;
+}
+
+.footnoteText {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #A3A3A3;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* --- Sharp Frame Detailing Markers from image_797454.jpg --- */
+.cornerMark {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(181, 148, 16, 0.4);
+  z-index: 4;
+}
+.topLeft { top: 35px; left: 35px; border-right: none; border-bottom: none; }
+.bottomRight { bottom: 35px; right: 35px; border-left: none; border-top: none; }
+
+/* --- Right Column Layout Structure --- */
+.narrativeColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.textMaskSlot {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slidingTextFilmstrip {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.narrativeSlide {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quoteParagraph {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 23px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #E5E5E5;
+  margin: 0 0 24px 0;
+}
+
+.provenanceTag {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.provenanceTag .label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B59410;
+  font-weight: 600;
+}
+
+.provenanceTag .value {
+  font-size: 13px;
+  color: #888888;
+}
+
+.goldHighlight {
+  color: #B59410;
+}
+
+/* --- Interactive Navigation Menu Deck --- */
+.collectorIndexStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 24px;
+}
+
+.collectorSelectorBtn {
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+  padding: 8px 0;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+  width: 100%;
+}
+
+.selectorIndicatorLine {
+  width: 25px;
+  height: 1px;
+  background-color: #FFFFFF;
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease;
+}
+
+.collectorMetaText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.btnName {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.btnSub {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* --- Hover and Selection Active States --- */
+.collectorSelectorBtn:hover {
+  opacity: 0.7;
+}
+
+.btnActive {
+  opacity: 1 !important;
+}
+
+.btnActive .selectorIndicatorLine {
+  transform: scaleX(1.4);
+  background-color: #B59410;
+}
+
+.btnActive .btnName {
+  color: #B59410;
+}
+
+@keyframes pulseOpacity {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* --- Responsiveness viewports --- */
+@media (max-width: 1024px) {
+  .ledgerGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .galleryViewport {
+    height: 340px;
+  }
+  .textMaskSlot, .narrativeSlide {
+    height: auto;
+    min-height: 200px;
+  }
+  .quoteParagraph {
+    font-size: 19px;
+  }
+}

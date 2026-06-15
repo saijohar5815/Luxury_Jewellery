@@ -1,0 +1,308 @@
+.wrapper {
+  background-color: #FBF9F6; /* Luxury silk parchment base */
+  padding: 140px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.curatorGrid {
+  display: grid;
+  grid-template-columns: 4.5fr 7.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- Left Side Typography controls --- */
+.stickyHeader {
+  margin-bottom: 60px;
+}
+
+.preTitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #B59410;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.mainTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #1A1A1A;
+  margin: 0 0 18px 0;
+}
+
+.sectionDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666666;
+  max-width: 400px;
+}
+
+.tabsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabItem {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 24px 0;
+  text-align: left;
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tabIndex {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  color: #CCCCCC;
+  font-weight: 600;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+.tabHeadingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tabTitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #444444;
+  letter-spacing: 0.5px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+.tabTagline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #999999;
+  transition: color 0.3s ease;
+}
+
+/* --- Left Hover Interactions --- */
+.tabItem:hover .tabTitle {
+  color: #1A1A1A;
+  transform: translateX(8px);
+}
+
+.tabItem:hover .tabIndex {
+  color: #B59410;
+}
+
+.tabActive {
+  border-bottom-color: #B59410;
+}
+
+.tabActive .tabTitle {
+  color: #B59410 !important;
+  font-weight: 500;
+  transform: translateX(12px);
+}
+
+.tabActive .tabIndex {
+  color: #B59410;
+}
+
+.tabActive .tabTagline {
+  color: #666666;
+}
+
+/* --- Right Side Visual Projections & Masks --- */
+.canvasColumn {
+  position: relative;
+  width: 100%;
+}
+
+.viewportFrame {
+  width: 100%;
+  position: relative;
+  transition: clip-path 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dynamic shifting state used during data refreshes */
+.viewportFadeOut {
+  opacity: 0.1;
+  transform: scale(0.99);
+}
+
+.sceneryMask {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+}
+
+.sceneryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.9) brightness(0.95) saturate(0.85);
+  animation: landscapeZoom 20s infinite linear alternate;
+}
+
+.sceneryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(251,249,246,0) 30%, rgba(251,249,246,0.95) 100%);
+}
+
+/* --- Floating Architecture layered on top of image scenery --- */
+.floatingShowcaseCard {
+  position: absolute;
+  top: -40px;
+  right: 40px;
+  width: 320px;
+  background-color: #ffffff;
+  border: 1px solid rgba(181, 148, 16, 0.15);
+  box-shadow: 0 30px 60px rgba(27, 26, 24, 0.08);
+  padding: 16px;
+  animation: floatElevation 4s infinite ease-in-out;
+}
+
+.productCanvas {
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productOverlayEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.02), transparent);
+}
+
+.productDetailsDrawer {
+  padding-top: 16px;
+}
+
+.productTag {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #B59410;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.productName {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 6px 0;
+}
+
+.productPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #666666;
+}
+
+.priceTag {
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.bulletGap {
+  color: #B59410;
+}
+
+.noteText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+/* Text summary layered underneath the floated items */
+.floatingTextPanel {
+  margin-top: 35px;
+  max-width: 480px;
+  padding-left: 10px;
+}
+
+.subTitleLine {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1A1A1A;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.longDescLine {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555555;
+}
+
+/* --- High Luxury Cinematic Keyframes --- */
+@keyframes landscapeZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes floatElevation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- Layout Responsiveness Rules --- */
+@media (max-width: 1024px) {
+  .curatorGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .floatingShowcaseCard {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+  }
+  .sceneryMask {
+    height: 350px;
+  }
+}
